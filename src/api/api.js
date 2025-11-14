@@ -1,11 +1,11 @@
 import axios from "axios";
-import { create } from "json-server";
+
 
 
 ////CREATE////
 
 const api = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "http://localhost:3000",
     headers: {
         "Content-Type": "application/json",
     },
