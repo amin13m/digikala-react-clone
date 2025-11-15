@@ -1,78 +1,96 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ali Reza",
       "email": "ali@example.com",
-      "password": "hashed_password",
+      "password": "1234",
       "role": "user"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Sara Ahmadi",
       "email": "sara@example.com",
-      "password": "hashed_password",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": "61ea",
+      "name": "Ahmad reza",
+      "email": "ahmadReza@example.com",
+      "password": "1234",
       "role": "user"
     }
   ],
-  
-  
   "categories": [
-    { "id": 1, "name": "کالای دیجیتال" },
-    { "id": 2, "name": "خانه و آشپزخانه" },
-    { "id": 3, "name": "مد و پوشاک" },
-    { "id": 4, "name": "کتاب و لوازم تحریر" }
+    {
+      "id": "1",
+      "name": "کالای دیجیتال"
+    },
+    {
+      "id": "2",
+      "name": "خانه و آشپزخانه"
+    },
+    {
+      "id": "3",
+      "name": "مد و پوشاک"
+    },
+    {
+      "id": "4",
+      "name": "کتاب و لوازم تحریر"
+    }
   ],
-  
-  
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "گوشی موبایل سامسونگ Galaxy S21",
       "description": "گوشی موبایل با صفحه نمایش 6.2 اینچ و حافظه 128GB",
       "price": 22000000,
-      "categoryId": 1,
+      "categoryId": "1",
       "image": "https://via.placeholder.com/150",
       "stock": 25
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "لپ تاپ Lenovo Ideapad 3",
       "description": "لپ‌تاپ با پردازنده Intel i5 و حافظه 512GB SSD",
       "price": 30000000,
-      "categoryId": 1,
+      "categoryId": "1",
       "image": "https://via.placeholder.com/150",
       "stock": 15
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "کتاب هوش مصنوعی",
       "description": "کتاب آموزشی برای یادگیری AI و ML",
       "price": 250000,
-      "categoryId": 4,
+      "categoryId": "4",
       "image": "https://via.placeholder.com/150",
       "stock": 50
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "کفش اسپرت نایک",
       "description": "کفش راحتی و ورزشی نایک مدل Air",
       "price": 1800000,
-      "categoryId": 3,
+      "categoryId": "3",
       "image": "https://via.placeholder.com/150",
       "stock": 30
     }
- 
   ],
-  
-  
   "carts": [
     {
-      "id": 1,
-      "userId": 1,
+      "id": "1",
+      "userId": "1",
       "items": [
-        { "productId": 1, "quantity": 1 },
-        { "productId": 3, "quantity": 2 }
+        {
+          "productId": "1",
+          "quantity": 1
+        },
+        {
+          "productId": "3",
+          "quantity": 2
+        }
       ]
     }
   ]
