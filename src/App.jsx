@@ -8,6 +8,12 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import Login from "./pages/Auth/login.jsx";
 import Register from "./pages/Auth/Register.jsx";
 import Logout from "./pages/Auth/logout.jsx";
+import Cart from "./pages/cart.jsx";
+import HeaderMobile from "./components/layout/MobileHeader.jsx";
+import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
+import Product from "./pages/product.jsx";
+import Category from "./pages/Category.jsx";
+
 
 function App() {
   return (
@@ -15,12 +21,19 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Header />
+          <HeaderMobile/>
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/logout" element={<Logout />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/category/:id" element={<Category />} />
+
+            <Route element={<ProtectedRoute/>} >
+              <Route path="cart" element={<Cart />} />
+            </Route>
           </Routes>
 
           <Footer />

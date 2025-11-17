@@ -127,7 +127,7 @@
       "name": "تلویزیون 55 اینچ سامسونگ",
       "description": "4K UHD | هوشمند با Tizen",
       "price": 32000000,
-      "categoryId": "5",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=Samsung+TV+55",
       "stock": 6
     },
@@ -136,7 +136,7 @@
       "name": "تلویزیون LG 50UP77",
       "description": "50 اینچ | 4K | WebOS",
       "price": 29500000,
-      "categoryId": "5",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=LG+TV+50",
       "stock": 7
     },
@@ -145,7 +145,7 @@
       "name": "مانیتور شیائومی 27 اینچ",
       "description": "144Hz | IPS | مخصوص گیم",
       "price": 15500000,
-      "categoryId": "6",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=Xiaomi+Monitor+27",
       "stock": 15
     },
@@ -154,7 +154,7 @@
       "name": "مانیتور سامسونگ 24 اینچ",
       "description": "Full HD | مناسب کار روزمره",
       "price": 7800000,
-      "categoryId": "6",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=Samsung+Monitor+24",
       "stock": 23
     },
@@ -163,7 +163,7 @@
       "name": "کیبورد مکانیکی Redragon",
       "description": "نور RGB | سوییچ آبی",
       "price": 2200000,
-      "categoryId": "7",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=Redragon+Keyboard",
       "stock": 33
     },
@@ -172,7 +172,7 @@
       "name": "ماوس گیمینگ Razer Viper",
       "description": "سنسور 20K DPI | وزن سبک",
       "price": 3100000,
-      "categoryId": "7",
+      "categoryId": "1",
       "image": "https://placehold.co/400x400?text=Razer+Viper",
       "stock": 28
     }
