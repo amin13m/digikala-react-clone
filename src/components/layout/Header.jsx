@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
+import CategoriesList from "../categories/CategoriesList";
+import SearchBox from "../searchBox";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -20,31 +22,14 @@ export default function Header() {
         </Link>
 
         {/* جستجو */}
-        <div className="flex-1 mx-4">
-          <input
-            type="text"
-            placeholder="جستجو در دیجی‌کالا"
-            className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-          />
-        </div>
+        <SearchBox/>
 
         {/* منو و آیکون‌ها */}
         <div className="flex items-center space-x-4">
 
           {/* دسته‌بندی‌ها ساده */}
-          <div className="relative group">
-            <button className="px-3 py-2 rounded hover:bg-gray-100 transition">
-              دسته‌بندی‌ها
-            </button>
-            <div className="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg border mt-1 rounded w-48">
-              <ul>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">کالای دیجیتال</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">خانه و آشپزخانه</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">مد و پوشاک</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">کتاب و لوازم تحریر</li>
-              </ul>
-            </div>
-          </div>
+         
+          <CategoriesList/>
 
           {/* سبد خرید */}
           <button
