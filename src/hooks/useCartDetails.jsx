@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { ProductAPI } from "../api/api";
 import { useCart } from "../context/CartContext";
+import { getDiscountedPrice } from "../utils/price";
 
 export const useCartDetails = () => {
   const { items, loading } = useCart();
@@ -28,7 +29,7 @@ export const useCartDetails = () => {
           return {
             ...product,
             quantity: cartItem.quantity,
-            subtotal: product.price * cartItem.quantity,
+            subtotal: getDiscountedPrice(product.price, product.discount) * cartItem.quantity,
           };
         });
 

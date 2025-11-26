@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ProductAPI } from "../api/api";
+import ProductCard from "./product/ProductCard";
 
 export default function SimilarProducts({ category, currentProductId }) {
   const [products, setProducts] = useState([]);
@@ -58,22 +59,8 @@ export default function SimilarProducts({ category, currentProductId }) {
         onMouseMove={handleMouseMove}
       >
         {products.map((item) => (
-          <Link
-            key={item.id}
-            to={`/product/${item.id}`}
-            className="min-w-[170px] w-full bg-white border rounded-lg p-3 flex flex-col items-center shadow-sm hover:shadow-lg transition"
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-32 h-32 object-contain"
-            />
-            <h3 className="text-sm mt-2 line-clamp-2 text-center">{item.name}</h3>
-            <p className="text-red-500 mt-2 font-semibold text-sm">
-              {item.price.toLocaleString()} تومان
-            </p>
-          </Link>
-        ))}
+            <ProductCard key={item.id} product={item} />
+          ))}
       </div>
     </div>
   );

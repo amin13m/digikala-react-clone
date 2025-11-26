@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ProductAPI } from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { getDiscountedPrice } from "../utils/price";
+import DiscountSlider from "../components/home/DiscountSlider";
+import ProductCard from "../components/product/ProductCard";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,10 +17,8 @@ export default function Home() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-
   // -------- Load products --------
   const loadProducts = async () => {
-
     try {
       if (page === 1) setLoading(true);
       else setLoadingMore(true);
@@ -34,7 +35,7 @@ export default function Home() {
         setHasMore(false);
       }
 
-      setProducts(prev => [...prev, ...newItems]);
+      setProducts((prev) => [...prev, ...newItems]);
     } catch (err) {
       console.log(err);
     } finally {
@@ -44,8 +45,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-
-
     loadProducts();
   }, [page]);
 
@@ -59,7 +58,7 @@ export default function Home() {
         document.documentElement.scrollHeight - 200;
 
       if (bottom && !loadingMore && hasMore) {
-        setPage(prev => prev + 1);
+        setPage((prev) => prev + 1);
       }
     };
 
@@ -72,7 +71,6 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 mt-6">
-
       {/* Banner */}
 
       <div className="relative w-full h-60 md:h-96 rounded-xl overflow-hidden mb-8">
@@ -82,24 +80,23 @@ export default function Home() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-          <h1 className="text-white text-2xl md:text-4xl font-bold">خوش آمدید به DigiClone</h1>
+          <h1 className="text-white text-2xl md:text-4xl font-bold">
+            خوش آمدید به DigiClone
+          </h1>
         </div>
       </div>
+
+      {/* Products */}
+
+      <DiscountSlider/>
 
       <h2 className="text-xl font-bold mb-4">محصولات</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {products.map((p , index) => (
-          <div
-            key={index}
-            id={p.id}
-            className="bg-white rounded-lg shadow p-3 hover:shadow-lg cursor-pointer"
-            onClick={() => navigate(`/product/${p.id}`)}
-          >
-            <img src={p.image} className="w-full h-32 object-cover rounded mb-2" />
-            <h3 className="text-sm font-semibold">{p.name}</h3>
-            <p className="text-red-600 font-bold mt-1">{p.price.toLocaleString()} تومان</p>
-          </div>
+        {products.map( (product , i) => (
+
+            <ProductCard key={i} product={product} />
+        
         ))}
       </div>
 

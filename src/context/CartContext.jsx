@@ -111,12 +111,12 @@ export const CartProvider = ({ children }) => {
     syncToServer(updatedItems);
   };
 
-  const removeItem = (productId) => {
-    const updatedItems = state.items.filter((item) => item.productId !== productId);
+  const removeItem = async (productId) => {
+    let updatedItems = state.items.filter(item=> item.productId !== productId);
 
-    dispatch({ type: REMOVE_ITEM, payload: updatedItems });
+    dispatch({ type: REMOVE_ITEM, payload : updatedItems });
     syncToServer(updatedItems);
-  };
+  }
 
   const updateQty = (productId, qty) => {
     const updatedItems = state.items.map((item) =>

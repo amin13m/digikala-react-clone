@@ -15,7 +15,7 @@ export default function SearchBox() {
         <input
           type="text"
           placeholder="جستجو در کالاها..."
-          className="bg-transparent outline-none pl-7 w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+          className="bg-transparent outline-none pl-7 w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 "
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -26,7 +27,13 @@ export default function LoginPage() {
     }
   };
 
+  
+  if(user)navigate("/");
+
   return (
+
+    
+
     <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg">
       <h2 className="text-2xl font-bold mb-6 text-center">ورود به حساب کاربری</h2>
 
