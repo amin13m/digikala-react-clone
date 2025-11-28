@@ -5,7 +5,7 @@ import axios from "axios";
 ////CREATE////
 
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:5000",
     headers: {
         "Content-Type": "application/json",
     },
@@ -43,7 +43,7 @@ export const ProductAPI={
     create : (data) => api.post("/products", data),
     update: (id, data) => api.put(`/products/${id}`, data),
     delete: (id) => api.delete(`/products/${id}`),
-    getByCategory: (category) => api.get(`/products?category=${category}`)
+    getByCategory: (category) => api.get(`/products?categoryId=${category}`)
 }
 
 /////CART CRUD////

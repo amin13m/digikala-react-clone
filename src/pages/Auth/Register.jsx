@@ -32,10 +32,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg">
+    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg dark:bg-gray-900">
       <h2 className="text-2xl font-bold mb-6 text-center">ثبت نام کاربر</h2>
 
-      {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+      {error && <p className="text-red-500 text-sm mb-3 ">{error}</p>}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
@@ -71,7 +71,7 @@ export default function RegisterPage() {
 
         <button
           type="submit"
-          className="bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg"
+          className="bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg "
         >
           ثبت نام
         </button>

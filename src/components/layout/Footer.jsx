@@ -5,13 +5,14 @@ import { FaInstagram, FaTelegramPlane, FaTwitter, FaYoutube } from "react-icons/
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t mt-10">
+    <footer className="bg-gray-100 border-t mt-10 
+      dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:border-t-gray-blue-500">
       <div className="max-w-6xl mx-auto px-4 py-10">
 
         {/* Logo + Description */}
         <div className="flex flex-col sm:flex-row justify-between gap-8 mb-10">
           <div className="flex flex-col gap-3 max-w-md">
-            <h2 className="text-2xl font-bold text-red-600">دیجی کلون</h2>
+            <h2 className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700">دیجی کلون</h2>
             <p className="text-sm text-gray-600 leading-6">
               خرید اینترنتی مطمئن، سریع و ارزان.  
               هزاران کالا در دسته‌بندی‌های مختلف با بهترین قیمت.
@@ -20,10 +21,10 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4 text-gray-700 text-2xl">
-            <FaInstagram className="hover:text-red-600 cursor-pointer" />
-            <FaTelegramPlane className="hover:text-red-600 cursor-pointer" />
-            <FaTwitter className="hover:text-red-600 cursor-pointer" />
-            <FaYoutube className="hover:text-red-600 cursor-pointer" />
+            <FaInstagram className="hover:text-red-600 cursor-pointer dark:hover:text-blue-600" />
+            <FaTelegramPlane className="hover:text-red-600 cursor-pointer dark:hover:text-blue-600" />
+            <FaTwitter className="hover:text-red-600 cursor-pointer dark:hover:text-blue-600" />
+            <FaYoutube className="hover:text-red-600 cursor-pointer dark:hover:text-blue-600" />
           </div>
         </div>
 
@@ -32,24 +33,24 @@ export default function Footer() {
 
           <div className="flex flex-col gap-2">
             <h3 className="font-bold mb-2">خدمات مشتریان</h3>
-            <Link to="/" className="hover:text-red-600">پرسش‌های متداول</Link>
-            <Link to="/" className="hover:text-red-600">رویه‌های بازگرداندن کالا</Link>
-            <Link to="/" className="hover:text-red-600">شرایط استفاده</Link>
-            <Link to="/" className="hover:text-red-600">حریم خصوصی</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">پرسش‌های متداول</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">رویه‌های بازگرداندن کالا</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">شرایط استفاده</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">حریم خصوصی</Link>
           </div>
 
           <div className="flex flex-col gap-2">
             <h3 className="font-bold mb-2">راهنمای خرید</h3>
-            <Link to="/" className="hover:text-red-600">نحوه ثبت سفارش</Link>
-            <Link to="/" className="hover:text-red-600">روش‌های ارسال</Link>
-            <Link to="/" className="hover:text-red-600">شیوه‌های پرداخت</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">نحوه ثبت سفارش</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">روش‌های ارسال</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">شیوه‌های پرداخت</Link>
           </div>
 
           <div className="flex flex-col gap-2">
             <h3 className="font-bold mb-2">درباره ما</h3>
-            <Link to="/" className="hover:text-red-600">تماس با ما</Link>
-            <Link to="/" className="hover:text-red-600">همکاری با ما</Link>
-            <Link to="/" className="hover:text-red-600">فرصت‌های شغلی</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">تماس با ما</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">همکاری با ما</Link>
+            <Link to="/" className="hover:text-red-600 dark:hover:text-blue-600">فرصت‌های شغلی</Link>
           </div>
 
           <div className="flex flex-col gap-2">

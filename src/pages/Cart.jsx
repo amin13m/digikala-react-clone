@@ -24,15 +24,17 @@ export default function Cart() {
       </div>
 
       {/* فاکتور خرید */}
-      <div className="bg-white rounded-xl shadow-sm border p-4 h-fit">
-        <h3 className="font-semibold text-gray-700 text-lg">خلاصه خرید</h3>
+      <div className="bg-white  rounded-xl shadow-sm border p-4 h-fit
+       dark:bg-gray-900 dark:text-white dark:border-gray-800 ">
+        <h3 className="font-semibold text-gray-700 text-lg dark:text-white">خلاصه خرید</h3>
 
-        <div className="flex justify-between mt-4 text-sm">
+        <div className="flex justify-between mt-4 text-sm
+        ">
           <span>جمع کل:</span>
-          <span>{total.toLocaleString()} تومان</span>
+          <span >{total.toLocaleString()} تومان</span>
         </div>
 
-        <button className="mt-6 w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition">
+        <button className="mt-6 w-full bg-red-600 active:bg-red-800 text-white py-3 rounded-lg hover:bg-red-700 transition dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800 active:scale-95">
           ادامه فرآیند خرید
         </button>
       </div>

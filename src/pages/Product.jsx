@@ -67,7 +67,7 @@ export default function Product() {
             <span className="font-semibold"> {category?.name}</span>
           </p>
 
-          <p className="text-lg leading-7 text-gray-700">
+          <p className="text-lg leading-7 text-gray-700 dark:text-gray-300">
             {product.description}
           </p>
 
@@ -91,7 +91,7 @@ export default function Product() {
 
             ) : (
   
-              <p className="text-gray-700 font-bold text-2xl mt-2">
+              <p className="text-gray-700 font-bold text-2xl mt-2 dark:text-gray-300">
                 {product.price.toLocaleString()} تومان
               </p>
             )}
@@ -113,7 +113,10 @@ export default function Product() {
                 image: product.image,
               })
             }
-            className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg mt-4 active:scale-95 active:bg-red-600"
+            className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg mt-4
+             active:scale-95 active:bg-red-800 active:border-x-5 active:border-red-800
+             dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:border-blue-700 dark:active:bg-blue-700
+             "
           >
             افزودن به سبد خرید
           </button>

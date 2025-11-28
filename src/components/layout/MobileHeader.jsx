@@ -4,6 +4,8 @@ import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import CategoriesList from "../categories/CategoriesList";
 import SearchBox from "../searchBox";
+import { useTheme } from "../../context/ThemeContext";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function HeaderMobile() {
   const { user, logout } = useAuth();
@@ -11,15 +13,26 @@ export default function HeaderMobile() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  
+    const {theme,toggleTheme}= useTheme()
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="md:hidden  bg-white shadow-md  top-0 z-50">
+    <header className="md:hidden  bg-white shadow-md  top-0 z-50
+      dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800">
       <div className="flex items-center justify-between p-4">
         {/* لوگو */}
         <Link to="/" className="text-xl font-bold text-red-600">
           DigiClone
         </Link>
+
+             <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 "
+              >
+                {theme === "light" ? <FaMoon /> : <FaSun />}
+              </button>
+            
 
         <div>
           {/* سبد خرید */}
@@ -37,7 +50,7 @@ export default function HeaderMobile() {
 
           {/* دکمه منوی همبرگر */}
           <button
-            className="px-3 md:hidden text-gray-700"
+            className="px-3 md:hidden text-gray-700  dark:text-white"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             ☰
@@ -47,7 +60,7 @@ export default function HeaderMobile() {
 
       {/* منوی موبایل */}
       {menuOpen && (
-        <div className="bg-white border-t shadow-md md:hidden">
+        <div className="bg-white border-t shadow-md md:hidden    dark:bg-gray-900 dark:text-white dark:border-gray-800">
           {/* جستجو */}
           <SearchBox />
 
@@ -58,7 +71,7 @@ export default function HeaderMobile() {
           >
             <Link
               to="/"
-              className="px-3 py-2 rounded hover:bg-gray-100 transition"
+              className="px-3 py-2 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
               onClick={() => setMenuOpen(false)}
             >
               خانه

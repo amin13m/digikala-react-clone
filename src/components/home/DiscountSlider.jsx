@@ -14,15 +14,16 @@ export default function DiscountSlider() {
   }, []);
 
   return (
-    <div className="w-full mt-10  h-full
-       bg-gradient-to-r from-pink-500 to-red-500
-       rounded-lg
+    <div className="w-full mt-10  h-full p-1.5
+       bg-gradient-to-r from-pink-700 to-red-700
+       dark:bg-gradient-to-r dark:from-blue-900 dark:to-green-300
+       rounded-2xl
     ">
-      <h2 className="text-white font-bold mb-4 text-2xl p-2">🔥 محصولات دارای تخفیف</h2>
+      <h2 className="text-white font-bold mb-2 text-2xl p-2  z-30">🔥 محصولات دارای تخفیف</h2>
 
-      <div className="overflow-x-auto mx-4  flex gap-8 pb-3">
+      <div className="overflow-x-auto overflow-y-visible mx-4 z-30  flex gap-4 pb-3">
         {products.map((p) => (
-          <div key={p.id} className="min-w-[180px]">
+          <div key={p.id} className="min-w-[180px] z-40">
             <ProductCard product={p} />
           </div>
         ))}

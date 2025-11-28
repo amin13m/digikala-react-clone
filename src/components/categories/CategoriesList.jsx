@@ -25,10 +25,10 @@ export default function CategoriesList() {
 
   return (
     <div className="relative group">
-      <h2 className="px-3 py-2 rounded hover:bg-gray-100 transition">دسته‌بندی‌ها</h2>
+      <h2 className="px-3 pt-1 cursor-pointer rounded hover:bg-gray-100 transition dark:hover:bg-gray-800">دسته‌بندی‌ها:</h2>
 
-      <div className="p-1 md:pl-1 pl-4 md:absolute top-full left-0  block md:hidden md:group-hover:block bg-white shadow-lg md:border mt-0 rounded w-48
-        
+      <div className="p-1 md:pl-1 pl-4 md:absolute top-full left-0  block md:hidden md:group-hover:block bg-white dark:bg-gray-900 shadow-lg md:border mt-0 rounded w-48
+       
       ">
         {categories.map((cat) => (
           <Link
@@ -36,7 +36,7 @@ export default function CategoriesList() {
             to={`/category/${cat.id}`}
             className="text-gray-700 "
           >
-            <p className="font-medium hover:shadow-lg shadow-gray-300">{cat.name}</p>
+            <p className="font-medium hover:shadow-lg shadow-gray-300 hover:text-red-500 dark:border-gray-800 dark:text-gray-200 dark:hover:text-white">{cat.name}</p>
           </Link>
         ))}
       </div>

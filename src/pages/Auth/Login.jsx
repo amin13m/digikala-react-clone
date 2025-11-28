@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function LoginPage() {
-  const { login } = useAuth();
+  const { login ,loading } = useAuth();
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -28,13 +28,13 @@ export default function LoginPage() {
   };
 
   
-  if(user)navigate("/");
+  if(user && !loading)navigate("/");
 
   return (
 
     
 
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg">
+    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg dark:bg-gray-900">
       <h2 className="text-2xl font-bold mb-6 text-center">ورود به حساب کاربری</h2>
 
       {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
@@ -63,7 +63,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg"
+          className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           ورود
         </button>

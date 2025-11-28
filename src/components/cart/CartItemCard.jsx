@@ -6,7 +6,7 @@ export default function CartItemCard({ item }) {
   const { updateQty, removeItem } = useCart();
 
   return (
-    <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border mb-3">
+    <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border mb-3 dark:bg-gray-900 dark:text-white dark:border-gray-800">
       {/* تصویر */}
       <img
         src={item.image}
@@ -16,7 +16,7 @@ export default function CartItemCard({ item }) {
 
       {/* اطلاعات */}
       <div className="flex-1 pr-4">
-        <h3 className="font-semibold text-gray-800 text-sm">{item.name}</h3>
+        <h3 className="font-semibold text-gray-800 text-sm dark:text-gray-300">{item.name}</h3>
         {item.discount > 0 ? (
           <div className="mt-2">
             <span className="text-red-600 font-bold text-sm">
@@ -36,7 +36,7 @@ export default function CartItemCard({ item }) {
             </div>
           </div>
         ) : (
-          <p className="text-gray-700 font-bold  mt-2 text-sm">
+          <p className="text-gray-700 font-bold  mt-2 text-sm dark:text-white">
             {item.price.toLocaleString()} تومان
           </p>
         )}

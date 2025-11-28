@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductAPI, CategoryAPI } from "../api/api";
+import ProductCard from "../components/product/ProductCard";
+import { getDiscountedPrice } from "../utils/price";
 
 export default function Category() {
   const { id } = useParams(); // categoryId
@@ -50,10 +52,10 @@ export default function Category() {
     let sorted = [...allProducts];
 
     if (value === "cheapest") {
-      sorted.sort((a, b) => a.price - b.price);
+      sorted.sort((a, b) => getDiscountedPrice(a.price,a.discount) -getDiscountedPrice(b.price,b.discount));
     }
     if (value === "expensive") {
-      sorted.sort((a, b) => b.price - a.price);
+      sorted.sort((a, b) => getDiscountedPrice(b.price,b.discount) - getDiscountedPrice(a.price,a.discount));
     }
 
     setVisibleProducts(sorted.slice(0, limit));
@@ -65,10 +67,10 @@ export default function Category() {
   };
 
   // ----------------------------------------------------
-  if (loading) return <p className="text-center mt-10">در حال بارگذاری...</p>;
+  if (loading) return <p className="text-center mt-10 dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800">در حال بارگذاری...</p>;
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <div className="max-w-6xl mx-auto p-4 ">
 
       {/* Header */}
       <h1 className="text-xl font-bold mb-4">
@@ -78,7 +80,7 @@ export default function Category() {
       {/* Sort Options */}
       <div className="flex gap-4 mb-4">
         <select
-          className="border p-2 rounded bg-white"
+          className="border p-2 rounded bg-white dark:bg-gray-900 dark:hover:bg-gray-800"
           value={sortType}
           onChange={(e) => handleSort(e.target.value)}
         >
@@ -94,22 +96,7 @@ export default function Category() {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {visibleProducts.map((p) => (
-            <div onClick={()=>{navigate(`/product/${p.id}`)}}
-              key={p.id}
-              className="border rounded-lg p-3 shadow-sm hover:shadow-lg cursor-pointer bg-white"
-            >
-              <img
-                src={p.image}
-                alt={p.name}
-                className="w-full h-40 object-cover rounded"
-              />
-
-              <h3 className="mt-3 font-semibold text-sm">{p.name}</h3>
-
-              <p className="text-red-600 font-bold mt-2 text-sm">
-                {p.price.toLocaleString()} تومان
-              </p>
-            </div>
+            <ProductCard product={p} key={p.id}></ProductCard>
           ))}
         </div>
       )}

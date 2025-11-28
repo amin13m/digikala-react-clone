@@ -13,32 +13,35 @@ import HeaderMobile from "./components/layout/MobileHeader.jsx";
 import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
 import Product from "./pages/product.jsx";
 import Category from "./pages/Category.jsx";
-
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
-          <Header />
-          <HeaderMobile/>
+    
+      <ThemeProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <HeaderMobile />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/auth/login" element={<Login />} />
-            <Route path="/auth/register" element={<Register />} />
-            <Route path="/auth/logout" element={<Logout />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/category/:id" element={<Category />} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/auth/login" element={<Login />} />
+              <Route path="/auth/register" element={<Register />} />
+              <Route path="/auth/logout" element={<Logout />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/category/:id" element={<Category />} />
 
-            <Route element={<ProtectedRoute/>} >
-              <Route path="cart" element={<Cart />} />
-            </Route>
-          </Routes>
+              <Route element={<ProtectedRoute />}>
+                <Route path="cart" element={<Cart />} />
+              </Route>
+            </Routes>
 
-          <Footer />
-        </CartProvider>
-      </AuthProvider>
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

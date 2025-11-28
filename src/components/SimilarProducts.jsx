@@ -52,14 +52,14 @@ export default function SimilarProducts({ category, currentProductId }) {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto no-scrollbar cursor-grab py-3 select-none"
+        className="flex gap-4 overflow-x-auto no-scrollbar cursor-grab py-3 select-none min-h-[250px]"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
         {products.map((item) => (
-            <ProductCard key={item.id} product={item} />
+            <ProductCard key={item.id} product={item}  />
           ))}
       </div>
     </div>

@@ -70,7 +70,8 @@ export default function Home() {
     return <p className="text-center mt-10">در حال بارگذاری...</p>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 mt-6">
+    <div className="max-w-7xl mx-auto px-4 pt-6
+      dark:bg-gray-800 dark:text-white dark:border-gray-800 ">
       {/* Banner */}
 
       <div className="relative w-full h-60 md:h-96 rounded-xl overflow-hidden mb-8">
