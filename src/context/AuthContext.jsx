@@ -92,8 +92,14 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: LOGOUT });
   };
 
+
+  const setUser= async (user) => {
+    await UserAPI.update(user.id, user);
+    dispatch({type:SET_USER,payload:user});
+  };
+
   return (
-    <AuthContext.Provider value={{ ...state, login, register, logout }}>
+    <AuthContext.Provider value={{ ...state, login, register, logout , setUser}}>
       {children}
     </AuthContext.Provider>
   );

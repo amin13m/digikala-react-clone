@@ -103,7 +103,7 @@ export const CartProvider = ({ children }) => {
     } else {
       updatedItems = [
         ...state.items,
-        { productId: product.id, quantity: 1 },
+        { productId: product.id, quantity: 1 , price: product.price, discount: product.discount ,name: product.name },
       ];
     }
 
@@ -132,6 +132,7 @@ export const CartProvider = ({ children }) => {
     if (state.cartId) CartAPI.update(state.cartId, { userId: user.id, items: [] });
   };
 
+
   return (
     <CartContext.Provider
       value={{
@@ -140,6 +141,7 @@ export const CartProvider = ({ children }) => {
         removeItem,
         updateQty,
         clearCart,
+        state,
       }}
     >
       {children}

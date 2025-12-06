@@ -5,21 +5,24 @@
       "name": "Ali Reza",
       "email": "ali@example.com",
       "password": "1234",
-      "role": "user"
+      "role": "user",
+      "wallet": 904776000
     },
     {
       "id": "2",
       "name": "Sara Ahmadi",
       "email": "sara@example.com",
       "password": "1234",
-      "role": "user"
+      "role": "user",
+      "wallet": 30000000
     },
     {
       "id": "61ea",
       "name": "Ahmad reza",
       "email": "ahmadReza@example.com",
       "password": "1234",
-      "role": "user"
+      "role": "user",
+      "wallet": 0
     }
   ],
   "categories": [
@@ -195,20 +198,7 @@
   "carts": [
     {
       "userId": "1",
-      "items": [
-        {
-          "productId": "3",
-          "quantity": 1
-        },
-        {
-          "productId": "2",
-          "quantity": 1
-        },
-        {
-          "productId": "8",
-          "quantity": 3
-        }
-      ],
+      "items": [],
       "id": "1"
     },
     {
@@ -224,6 +214,59 @@
         }
       ],
       "id": "09bb"
+    }
+  ],
+  "orders": [
+    {
+      "id": "93a3",
+      "userId": "1",
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "name": "لپ تاپ Lenovo Ideapad 3",
+          "price": 30000000,
+          "discount": 10
+        }
+      ],
+      "total": 27000000,
+      "date": "12/6/2025, 9:05:09 AM"
+    },
+    {
+      "id": "4348",
+      "userId": "1",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "name": "هندزفری بلوتوث Samsung Buds 2",
+          "price": 4800000,
+          "discount": 12
+        },
+        {
+          "productId": "4",
+          "quantity": 2,
+          "name": "کفش اسپرت نایک",
+          "price": 1800000,
+          "discount": 0
+        },
+        {
+          "productId": "13",
+          "quantity": 1,
+          "name": "مانیتور سامسونگ 24 اینچ",
+          "price": 7800000,
+          "discount": 0
+        },
+        {
+          "productId": "1",
+          "quantity": 1,
+          "name": "گوشی موبایل سامسونگ Galaxy S21",
+          "price": 22000000,
+          "discount": 0
+        }
+      ],
+      "total": 37624000,
+      "date": "12/6/2025, 9:06:25 AM"
     }
   ]
 }

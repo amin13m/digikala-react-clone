@@ -5,7 +5,7 @@ import axios from "axios";
 ////CREATE////
 
 const api = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "http://localhost:3000",
     headers: {
         "Content-Type": "application/json",
     },
@@ -56,5 +56,15 @@ export const CartAPI={
     delete: (id) => api.delete(`/carts/${id}`)
 }
 
+/////ORDER CRUD////
+
+export const OrderAPI = {
+    getAll: () => api.get("/orders"),
+    getByUser: (userId) => api.get(`/orders?userId=${userId}`),
+    getById: (id) => api.get(`/orders/${id}`),
+    create: (data) => api.post("/orders", data),
+    update: (id, data) => api.put(`/orders/${id}`, data),
+    delete: (id) => api.delete(`/orders/${id}`)
+};
 
 export default api

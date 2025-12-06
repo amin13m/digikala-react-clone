@@ -14,31 +14,37 @@ import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
 import Product from "./pages/product.jsx";
 import Category from "./pages/Category.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { PaymentProvider } from "./context/PaymentContext.jsx";
+import Checkout from "./pages/Auth/Checkout.jsx";
+import Orders from "./pages/Orders.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-    
       <ThemeProvider>
         <AuthProvider>
           <CartProvider>
-            <Header />
-            <HeaderMobile />
+            <PaymentProvider>
+              <Header />
+              <HeaderMobile />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/auth/login" element={<Login />} />
-              <Route path="/auth/register" element={<Register />} />
-              <Route path="/auth/logout" element={<Logout />} />
-              <Route path="/product/:id" element={<Product />} />
-              <Route path="/category/:id" element={<Category />} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth/register" element={<Register />} />
+                <Route path="/auth/logout" element={<Logout />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/category/:id" element={<Category />} />
 
-              <Route element={<ProtectedRoute />}>
-                <Route path="cart" element={<Cart />} />
-              </Route>
-            </Routes>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="cart" element={<Cart />} />
+                  <Route path="checkout" element={<Checkout />} />
+                  <Route path="orders" element={<Orders />} />
+                </Route>
+              </Routes>
 
-            <Footer />
+              <Footer />
+            </PaymentProvider>
           </CartProvider>
         </AuthProvider>
       </ThemeProvider>

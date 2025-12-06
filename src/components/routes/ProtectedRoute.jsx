@@ -7,10 +7,10 @@ import { useAuth } from "../../context/AuthContext";
  * مثال: /cart, /profile
  */
 export default function ProtectedRoute() {
-  const { user } = useAuth();
+  const { user ,loading } = useAuth();
 
   // اگر کاربر لاگین نکرده → هدایت به صفحه لاگین
-  if (!user) {
+  if (!user && !loading) {
     return <Navigate to="/auth/login" replace />;
   }
 

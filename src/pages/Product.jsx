@@ -111,6 +111,7 @@ export default function Product() {
                 name: product.name,
                 quantity: 1,
                 image: product.image,
+                discount: product.discount,
               })
             }
             className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg mt-4

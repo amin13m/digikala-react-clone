@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
   return (
     <div
       id={product.id}
-      className="bg-gray-200 h-full rounded-lg shadow p-3 hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out min-w-[150px]
+      className="bg-gray-200 h-full rounded-lg shadow p-3 hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out sm:min-w-[150px]
       
       dark:bg-gray-900 dark:text-white dark:border-gray-800  dark:hover:text-white"
       onClick={() => navigate(`/product/${product.id}`)}
