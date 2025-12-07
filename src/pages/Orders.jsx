@@ -48,7 +48,7 @@ export default function Orders() {
                 {orders.map(order => (
                     <div
                         key={order.id}
-                        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow p-4 transition-colors"
+                        className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow p-4 transition-colors"
                     >
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <span className="font-semibold dark:text-gray-300">
@@ -62,7 +62,7 @@ export default function Orders() {
                             جمع کل: {order.total.toLocaleString()} تومان
                         </div>
                         <div className="overflow-x-auto">
-                            <table className="min-w-full text-left border-collapse">
+                            <table className="min-w-full text-left border-collapse border-b border-2 border-gray-300  dark:border-gray-700">
                                 <thead>
                                     <tr className="bg-gray-300  dark:bg-gray-700">
                                         <th className="px-3 py-1 text-sm  dark:text-gray-200">محصول</th>
@@ -72,7 +72,7 @@ export default function Orders() {
                                 </thead>
                                 <tbody>
                                     {order.items.map((item, index) => (
-                                        <tr key={index} className="border-b border-2 border-gray-200 dark:border-gray-700">
+                                        <tr key={index} className="border-b border-2 border-gray-300  dark:border-gray-700">
                                             <td className="px-3 py-1 text-sm dark:text-gray-200">
                                                 {item.name}
                                             </td>

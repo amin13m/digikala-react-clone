@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { getDiscountedPrice } from "../utils/price";
 import DiscountSlider from "../components/home/DiscountSlider";
 import ProductCard from "../components/product/ProductCard";
+import TopSellingProducts from "../components/home/topSellingProducts";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -70,8 +71,10 @@ export default function Home() {
     return <p className="text-center mt-10">در حال بارگذاری...</p>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-6
-      dark:bg-gray-800 dark:text-white dark:border-gray-800 ">
+    <div
+      className="max-w-7xl mx-auto px-4 pt-6
+      dark:bg-gray-800 dark:text-white dark:border-gray-800 "
+    >
       {/* Banner */}
 
       <div className="relative w-full h-60 md:h-96 rounded-xl overflow-hidden mb-8">
@@ -89,15 +92,15 @@ export default function Home() {
 
       {/* Products */}
 
-      <DiscountSlider/>
+      <DiscountSlider />
+
+      <TopSellingProducts />
 
       <h2 className="text-xl font-bold mb-4">محصولات</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {products.map( (product , i) => (
-
-            <ProductCard key={i} product={product} />
-        
+        {products.map((product, i) => (
+          <ProductCard key={i} product={product} />
         ))}
       </div>
 

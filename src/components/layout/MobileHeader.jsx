@@ -79,6 +79,17 @@ export default function HeaderMobile() {
 
             <CategoriesList />
 
+            {/* سوابق خرید */}
+            <button
+              onClick={() => {
+                navigate("/orders");
+                setMenuOpen(false);
+              }}
+              className="px-3 py-2 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
+            >
+              سوابق خرید
+            </button>
+
             {user ? (
               <>
                 <span className="px-3 py-2 text-gray-700">{user.name}</span>

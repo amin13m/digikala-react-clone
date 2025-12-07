@@ -47,19 +47,19 @@ export default function SimilarProducts({ category, currentProductId }) {
   if (!products.length) return null;
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 w-full  h-full p-1.5">
       <h2 className="text-lg font-bold mb-3">محصولات مشابه</h2>
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto no-scrollbar cursor-grab py-3 select-none min-h-[250px]"
+        className="flex gap-4 overflow-x-auto no-scrollbar cursor-grab py-3 select-none min-h-[250px] md:h-[300px]"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
         {products.map((item) => (
-            <ProductCard key={item.id} product={item}  />
+            <ProductCard key={item.id} product={item} />
           ))}
       </div>
     </div>
