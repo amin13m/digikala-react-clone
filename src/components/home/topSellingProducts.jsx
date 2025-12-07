@@ -1,21 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { OrderAPI, ProductAPI } from "../../api/api.js";
 import ProductCard from "../product/ProductCard.jsx";
 
-export default function TopSellingSlider() {
-    const [topProducts, setTopProducts] = useState([]);
+function TopSellingSlider() {
+    const [products, setProducts] = useState([]);
+    const[orders,setOrders]= useState([]);
 
     useEffect(() => {
         const fetchTopSelling = async () => {
             try {
                 //  دریافت همه سفارشات
-                const ordersRes = await OrderAPI.getAll();
-                const orders = ordersRes.data;
+                const ordersRes = await OrderAPI.getAll()
+                  .then((res) =>setOrders(res.data));
 
-                //  محاسبه تعداد فروش هر محصول
+               
+                //  دریافت همه محصولات
+                const productsRes = await ProductAPI.getAll();
+                const allProducts = productsRes.data;
+
+                setProducts(allProducts);
+                //  ترکیب تعداد فروش با اطلاعات کامل محصول
+                
+
+                
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchTopSelling();
+    }, []);
+
+
+    const productSales =useMemo(()=>{
+       //  محاسبه تعداد فروش هر محصول
                 const productSales = {}; // { productId: soldCount }
 
-                orders.forEach(order => {
+                orders
+                  .forEach(order => {
                     order.items.forEach(item => {
                         if (productSales[item.productId]) {
                             productSales[item.productId] += item.quantity;
@@ -24,13 +46,13 @@ export default function TopSellingSlider() {
                         }
                     });
                 });
+                return productSales;
 
-                //  دریافت همه محصولات
-                const productsRes = await ProductAPI.getAll();
-                const allProducts = productsRes.data;
+    },[orders]);
 
-                //  ترکیب تعداد فروش با اطلاعات کامل محصول
-                const productsWithSales = allProducts
+    const topProducts =useMemo(()=>{
+      
+      return   products
                     .map(p => ({
                         ...p,
                         soldCount: productSales[p.id] || 0
@@ -38,15 +60,9 @@ export default function TopSellingSlider() {
                     .filter(p => p.soldCount > 0) // فقط محصولاتی که فروش دارند
                     .sort((a, b) => b.soldCount - a.soldCount) // مرتب بر اساس فروش
                     .slice(0, 10); // ۱۰ محصول برتر
+    },[products]);
 
-                setTopProducts(productsWithSales);
-            } catch (err) {
-                console.error(err);
-            }
-        };
 
-        fetchTopSelling();
-    }, []);
 
     if (topProducts.length === 0) return null;
 
@@ -66,3 +82,6 @@ export default function TopSellingSlider() {
         </div>
     );
 }
+
+
+export default React.memo(TopSellingSlider);

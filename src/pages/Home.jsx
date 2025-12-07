@@ -9,7 +9,7 @@ import TopSellingProducts from "../components/home/topSellingProducts";
 
 export default function Home() {
   const navigate = useNavigate();
-console.log("home render")
+
   const LIMIT = 4;
 
   const [products, setProducts] = useState([]);

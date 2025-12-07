@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default  React.memo( function ProductCard({ product }) {
   const navigate = useNavigate();
-console.log("render count" , product.id)
+
   return (
     <div
       id={product.id}

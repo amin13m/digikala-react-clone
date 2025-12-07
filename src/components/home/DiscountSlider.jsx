@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ProductAPI } from "../../api/api";
 import { getDiscountedPrice } from "../../utils/price";
 import ProductCard from "../product/ProductCard";
 
-export default function DiscountSlider() {
+function DiscountSlider() {
   const [products, setProducts] = useState([]);
-
+  
   useEffect(() => {
-    ProductAPI.getAll().then((res) => {
-      const discounted = res.data.filter((p) => p.discount > 0);
-      setProducts(discounted);
-    });
+    ProductAPI.getAll()
+      .then((res) =>setProducts(res.data));
   }, []);
+
+  const discounted = useMemo(() =>{ 
+    return products.filter((p) => p.discount > 0)
+  }, [products]);
+
 
   return (
     <div className="w-full mt-10  h-full p-1.5
@@ -22,7 +25,7 @@ export default function DiscountSlider() {
       <h2 className="text-white font-bold mb-2 text-2xl p-2  z-30">🔥 محصولات دارای تخفیف</h2>
 
       <div className="overflow-x-auto overflow-y-visible mx-4 z-30  flex gap-4 pb-3">
-        {products.map((p) => (
+        {discounted.map((p) => (
           <div key={p.id} className="min-w-[180px] z-40">
             <ProductCard product={p} />
           </div>
@@ -31,3 +34,7 @@ export default function DiscountSlider() {
     </div>
   );
 }
+
+
+
+export default React.memo(DiscountSlider);
