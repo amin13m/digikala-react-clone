@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ProductAPI } from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -9,7 +9,7 @@ import TopSellingProducts from "../components/home/topSellingProducts";
 
 export default function Home() {
   const navigate = useNavigate();
-
+console.log("home render")
   const LIMIT = 4;
 
   const [products, setProducts] = useState([]);
@@ -19,7 +19,7 @@ export default function Home() {
   const [hasMore, setHasMore] = useState(true);
 
   // -------- Load products --------
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     try {
       if (page === 1) setLoading(true);
       else setLoadingMore(true);
@@ -36,18 +36,22 @@ export default function Home() {
         setHasMore(false);
       }
 
-      setProducts((prev) => [...prev, ...newItems]);
+      setProducts((prev) =>{
+        if (page === 1) {return newItems;}
+        else {return [...prev, ...newItems];}}
+      );
     } catch (err) {
       console.log(err);
     } finally {
       setLoading(false);
       setLoadingMore(false);
     }
-  };
-
+  }
+  ,[page])
+    
   useEffect(() => {
     loadProducts();
-  }, [page]);
+  }, [loadProducts]);
 
   // ----- Infinite Scroll -----
   useEffect(() => {
@@ -100,7 +104,7 @@ export default function Home() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {products.map((product, i) => (
-          <ProductCard key={i} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
 

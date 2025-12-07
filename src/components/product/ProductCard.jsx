@@ -1,13 +1,12 @@
 
-
 import React from "react";
 import { getDiscountedPrice } from "../../utils/price";
 import { useNavigate } from "react-router-dom";
 
 
-export default function ProductCard({ product }) {
+export default  React.memo( function ProductCard({ product }) {
   const navigate = useNavigate();
-  
+console.log("render count" , product.id)
   return (
     <div
       id={product.id}
@@ -49,4 +48,12 @@ export default function ProductCard({ product }) {
       )}
     </div>
   );
+}
+,areEqual)
+
+
+function areEqual(prevProps, nextProps) {
+  return prevProps.product.id === nextProps.product.id &&
+         prevProps.product.price === nextProps.product.price &&
+         prevProps.product.discount === nextProps.product.discount;
 }
