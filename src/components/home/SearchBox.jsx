@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import useSearch from "../hooks/useSearch";
+import useSearch from "../../hooks/useSearch";
 import { FaSearch } from "react-icons/fa";
 
 export default function SearchBox() {
@@ -8,12 +8,16 @@ export default function SearchBox() {
   const { results, loading } = useSearch(query);
 
   return (
-    <div className="relative w-full max-w-md mx-auto
-    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800">
+    <div
+      className="relative w-full max-w-md mx-auto
+    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
+    >
       {/* Input */}
-      <div className="flex items-center bg-gray-100  px-3 py-2 relative dark:hover:bg-opacity-0 
+      <div
+        className="flex items-center bg-gray-100  px-3 py-2 relative dark:hover:bg-opacity-0 
        dark:bg-gray-900 dark:text-white dark:border-gray-800 
-       ">
+       "
+      >
         <FaSearch className="text-gray-400 text-sm absolute left-5" />
         <input
           type="text"
@@ -29,9 +33,10 @@ export default function SearchBox() {
 
       {/* Results Box */}
       {query && (
-        <div className="absolute top-12 w-full bg-white shadow-lg rounded-lg z-50 max-h-72 overflow-y-auto
-         dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800">
-
+        <div
+          className="absolute top-12 w-full bg-white shadow-lg rounded-lg z-50 max-h-72 overflow-y-auto
+         dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
+        >
           {loading && (
             <p className="p-3 text-center text-gray-500">در حال جستجو...</p>
           )}

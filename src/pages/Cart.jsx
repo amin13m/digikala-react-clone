@@ -39,6 +39,7 @@ export default function Cart() {
 
         <button className="mt-6 w-full bg-red-600 active:bg-red-800 text-white py-3 rounded-lg hover:bg-red-700 transition dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800 active:scale-95"
         onClick={()=>navigate("/checkout") }
+        disabled={cartDetails.length===0}
         >
           ادامه فرآیند خرید
         </button>

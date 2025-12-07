@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ProductAPI } from "../api/api";
-import ProductCard from "./product/ProductCard";
+import { ProductAPI } from "../../api/api";
+import ProductCard from "./ProductCard";
 
 export default function SimilarProducts({ category, currentProductId }) {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,7 @@ export default function SimilarProducts({ category, currentProductId }) {
     (async () => {
       try {
         const res = await ProductAPI.getByCategory(category);
-        const filtered = res.data.filter(p => p.id !== currentProductId);
+        const filtered = res.data.filter((p) => p.id !== currentProductId);
         setProducts(filtered);
       } catch (err) {
         console.log(err);
@@ -59,8 +59,8 @@ export default function SimilarProducts({ category, currentProductId }) {
         onMouseMove={handleMouseMove}
       >
         {products.map((item) => (
-            <ProductCard key={item.id} product={item} />
-          ))}
+          <ProductCard key={item.id} product={item} />
+        ))}
       </div>
     </div>
   );

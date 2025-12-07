@@ -12,7 +12,7 @@ export default function Orders() {
     useEffect(() => {
         if (user) {
             OrderAPI.getByUser(user.id)
-                .then(res => setOrders(res.data))
+                .then(res => setOrders(res.data.reverse()))
                 .finally(() => setLoading(false));
         }
     }, [user]);
@@ -41,6 +41,7 @@ export default function Orders() {
         );
     }
 
+    
     return (
         <div className="p-4 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-6 dark:text-white">سوابق خرید</h2>

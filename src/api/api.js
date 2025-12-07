@@ -67,4 +67,11 @@ export const OrderAPI = {
     delete: (id) => api.delete(`/orders/${id}`)
 };
 
+///// COMMENT CRUD /////
+export const CommentAPI = {
+    getByProduct: (productId) => api.get(`/comments?productId=${productId}`),
+    create: (data) => api.post("/comments", data),
+    delete: (id) => api.delete(`/comments/${id}`),
+};
+
 export default api

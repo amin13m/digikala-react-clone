@@ -57,7 +57,7 @@ export default function Checkout() {
           <button
             onClick={handlePay}
             disabled={cart.length === 0}
-            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition  active:scale-95"
           >
             پرداخت نهایی
           </button>

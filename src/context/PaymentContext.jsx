@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useContext } from "react";
-import { UserAPI, OrderAPI } from "../api/api.js";
+import { UserAPI, OrderAPI, ProductAPI } from "../api/api.js";
 import { useAuth } from "./AuthContext.jsx";
 import { useCart } from "./CartContext.jsx";
 import { getDiscountedPrice } from "../utils/price.js";
@@ -46,7 +46,22 @@ export const PaymentProvider = ({children}) => {
 
         await OrderAPI.create(newOrder);
 
-        // 4) کم کردن مبلغ از کیف پول
+        //4) بروزرسانی تعداد کالا 
+        
+        for (const item of cartItems) {
+            const product = (await ProductAPI.getById(item.productId)).data;
+console.log(item.quantity , product.stock);
+            if(product.stock < item.quantity) return {success: false, msg: "موجودی کالا کافی نیست."}
+
+            const updatedItems={
+                ...product,
+                stock :product.stock - item.quantity
+            }
+            await ProductAPI.update(product.id,updatedItems);
+        }
+
+        // 5) کم کردن مبلغ از کیف پول
+        
         const updatedUser = {
             ...user,
             wallet: user.wallet - totalPrice,
@@ -55,7 +70,7 @@ export const PaymentProvider = ({children}) => {
     
         setUser(updatedUser);
 
-        // 5) خالی کردن سبد خرید
+        // 6) خالی کردن سبد خرید
         clearCart();
 
         return { success: true, msg: "پرداخت با موفقیت انجام شد ✔️" };
