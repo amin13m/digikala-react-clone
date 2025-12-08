@@ -198,7 +198,15 @@
   "carts": [
     {
       "userId": "1",
-      "items": [],
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "price": 30000000,
+          "discount": 10,
+          "name": "لپ تاپ Lenovo Ideapad 3"
+        }
+      ],
       "id": "1"
     },
     {
