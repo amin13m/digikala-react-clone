@@ -50,7 +50,7 @@ export const PaymentProvider = ({children}) => {
         
         for (const item of cartItems) {
             const product = (await ProductAPI.getById(item.productId)).data;
-console.log(item.quantity , product.stock);
+
             if(product.stock < item.quantity) return {success: false, msg: "موجودی کالا کافی نیست."}
 
             const updatedItems={

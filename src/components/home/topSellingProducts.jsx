@@ -68,8 +68,8 @@ function TopSellingSlider() {
 
     return (
         <div className="w-full mt-10 h-full p-1.5
-                        bg-gradient-to-r from-yellow-600 to-orange-600
-                        dark:bg-gradient-to-r dark:from-gray-900 dark:to-blue-700
+                        bg-linear-to-r from-yellow-600 to-orange-600
+                        dark:bg-linear-to-r dark:from-gray-900 dark:to-blue-700
                         rounded-2xl">
             <h2 className="text-white font-bold mb-2 text-2xl p-2 z-30">🔥 محصولات پرفروش</h2>
             <div className="overflow-x-auto overflow-y-visible mx-4 z-30 flex gap-4 pb-3">

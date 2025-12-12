@@ -2,11 +2,13 @@ import React from "react";
 import { useCartDetails } from "../hooks/useCartDetails";
 import CartItemCard from "../components/cart/CartItemCard";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Cart() {
   const navigate = useNavigate();
 
   const { cartDetails, isLoading } = useCartDetails();
+  const {user}=useAuth();
 
   if (isLoading) return <p>در حال بارگذاری...</p>;
 
@@ -30,16 +32,31 @@ export default function Cart() {
       <div className="bg-white  rounded-xl shadow-sm border p-4 h-fit
        dark:bg-gray-900 dark:text-white dark:border-gray-800 ">
         <h3 className="font-semibold text-gray-700 text-lg dark:text-white">خلاصه خرید</h3>
-
+        
+        {user.wallet>=total?<div className="flex justify-between mt-4 text-sm
+        ">
+          <span>موجودی کیف پول </span>
+          <span >{user.wallet.toLocaleString()} تومان</span>
+        </div>:
+        
+        <div className="flex justify-between mt-4 text-sm
+        text-red-600">
+          <span>موجودی کیف پول ناکافی</span>
+          <span >{user.wallet.toLocaleString()} تومان</span>
+        </div>
+        }
+        
+        
         <div className="flex justify-between mt-4 text-sm
         ">
           <span>جمع کل:</span>
           <span >{total.toLocaleString()} تومان</span>
         </div>
 
+        
         <button className="mt-6 w-full bg-red-600 active:bg-red-800 text-white py-3 rounded-lg hover:bg-red-700 transition dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800 active:scale-95"
         onClick={()=>navigate("/checkout") }
-        disabled={cartDetails.length===0}
+        disabled={cartDetails.length===0||user.wallet<total}
         >
           ادامه فرآیند خرید
         </button>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CommentAPI, OrderAPI } from "../../api/api.js";
 import { useAuth } from "../../context/AuthContext.jsx";
+import CommentList from "./CommentList.jsx";
 
 export default function Comments({ productId }) {
     const { user } = useAuth();
@@ -116,17 +117,7 @@ export default function Comments({ productId }) {
                 <p className="text-gray-500 dark:text-gray-300">هنوز نظری ثبت نشده.</p>
                 ) : (
                 comments.map(c => (
-                    <div
-                        key={c.id}
-                        className="border-b pb-3 mb-3 dark:border-gray-700"
-                    >
-                        <div className="flex justify-between mb-1">
-                            <span className="font-bold dark:text-white">{c.username}</span>
-                            <span className="text-yellow-500">{c.rating} ⭐</span>
-                        </div>
-                        <p className="dark:text-gray-300">{c.text}</p>
-                        <p className="text-xs text-gray-400 mt-1">{c.date}</p>
-                    </div>
+                    <CommentList key={c.id} c={c} />
                 ))
             )}
         </div>

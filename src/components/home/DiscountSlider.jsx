@@ -18,8 +18,8 @@ function DiscountSlider() {
 
   return (
     <div className="w-full mt-10  h-full p-1.5
-       bg-gradient-to-r from-pink-700 to-red-700
-       dark:bg-gradient-to-r dark:from-blue-900 dark:to-green-300
+       bg-linear-to-r from-pink-700 to-red-700
+       dark:bg-linear-to-r dark:from-blue-900 dark:to-green-300
        rounded-2xl
     ">
       <h2 className="text-white font-bold mb-2 text-2xl p-2  z-30">🔥 محصولات دارای تخفیف</h2>

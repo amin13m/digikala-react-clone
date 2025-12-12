@@ -2,9 +2,11 @@ import React from "react";
 import { useCart } from "../../context/CartContext";
 import { usePayment } from "../../context/PaymentContext";
 import { getDiscountedPrice } from "../../utils/price";
+import { useAuth } from "../../context/AuthContext";
 export default function Checkout() {
   const { items: cart } = useCart();
   const { makePayment } = usePayment();
+  const {user}=useAuth();
 
   const handlePay = async () => {
     const result = await makePayment(cart);
@@ -18,22 +20,26 @@ export default function Checkout() {
     }, 0);
   };
 
-  {
-    console.log(totalPrice());
-  }
+  
   return (
     <div className="p-4 max-w-2xl mx-auto">
-      {!cart && (
-        <h1 className="text-2xl font-bold mb-4">سبد خرید شما خالی است</h1>
+      {(!cart || !user) && (<>
+        <h1 className="text-2xl font-bold mb-4 r-0">سبد خرید شما خالی است</h1>
+        </>
       )}
-      {cart && (
+      {(cart.length === 0 || !user) && (
+        <>
+          <h1 className="text-2xl font-bold mb-4 r-0">سبد خرید شما خالی است</h1>
+        </>
+      )}
+      {(cart.length > 0 && user )&& (
         <>
           <h2 className="text-xl font-bold mb-4">تایید و پرداخت</h2>
+          
 
           <div className="mb-4 border rounded p-3">
-            {cart.length === 0 ? (
-              <p>سبد خرید شما خالی است</p>
-            ) : (
+
+            {(
               cart.map((item) => (
                 <div key={item.productId} className="flex justify-between py-1">
                   <span>{item.name} </span>
@@ -52,7 +58,8 @@ export default function Checkout() {
           </div>
 
           <div className="text-right mb-4">
-            <strong>جمع کل: {totalPrice().toLocaleString()} تومان</strong>
+            <strong>جمع کل: {totalPrice().toLocaleString()} تومان</strong><br></br>
+            <span className=" text-gray-500"><span>موجودی: </span>{user.wallet.toLocaleString() } تومان</span>
           </div>
           <button
             onClick={handlePay}

@@ -90,15 +90,28 @@ export const CartProvider = ({ children }) => {
 
   // ACTIONS
   const addItem = async (product) => {
+    
+    if(!user){
+      alert("ابتدا وارد حساب خود شوید.");
+      return
+    }
+
     const existing = state.items.find((item) => item.productId === product.id);
 
     let updatedItems;
 
     if (existing) {
-      updatedItems = state.items.map((item) =>
-        item.productId === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+      updatedItems = state.items.map((item) =>{
+
+        if(item.productId === product.id ){
+          return item.quantity < product.quantity?
+           { ...item, quantity: item.quantity + 1 }
+           :{ ...item, quantity: item.quantity }
+        }
+        else{
+          return item
+        } 
+      }
       );
     } else {
       updatedItems = [

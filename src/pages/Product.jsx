@@ -27,7 +27,7 @@ export default function Product() {
         const cat = await CategoryAPI.getById(res.data.categoryId);
         setCategory(cat.data);
       } catch (err) {
-        console.log(err);
+        console.log(err.massage);
         setError(true);
       } finally {
         setLoading(false);
@@ -114,7 +114,7 @@ export default function Product() {
                 id: product.id,
                 price: product.price,
                 name: product.name,
-                quantity: 1,
+                quantity: product.stock,
                 image: product.image,
                 discount: product.discount,
               })

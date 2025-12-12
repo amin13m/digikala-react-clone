@@ -1,62 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { CommentAPI } from "../../api/api.js";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 export default function ProductRating({ productId }) {
-    const [average, setAverage] = useState(0);
-    const [count, setCount] = useState(0);
+    const [comments, setComments] = useState([]);
 
+    // ۱) فقط بارگیری
     useEffect(() => {
-        loadRating();
+        (async () => {
+            const res = await CommentAPI.getByProduct(productId);
+            setComments(res.data);
+        })();
     }, [productId]);
 
-    const loadRating = async () => {
-        const res = await CommentAPI.getByProduct(productId);
-        const comments = res.data;
-
-        if (comments.length === 0) {
-            setAverage(0);
-            setCount(0);
-            return;
-        }
-
-        // ---- فقط آخرین کامنت هر کاربر ----
-        const latestComments = {};
-
-        comments.forEach((comment) => {
-            const userId = comment.userId;
-
-            // اگر قبلاً کامنتی از این کاربر ثبت شده ولی این یکی جدیدتر است → جایگزین شود
-            if (!latestComments[userId] || new Date(comment.date) > new Date(latestComments[userId].date)) {
-                latestComments[userId] = comment;
+    // ۲) گرفتن آخرین کامنت هر کاربر
+    const latestComments = useMemo(() => {
+        const map = {};
+        comments.forEach((c) => {
+            if (!map[c.userId] || new Date(c.date) > new Date(map[c.userId].date)) {
+                map[c.userId] = c;
             }
         });
+        return Object.values(map);
+    }, [comments]);
 
-        const filtered = Object.values(latestComments);
+    // ۳) محاسبه میانگین
+    const average = useMemo(() => {
+        if (latestComments.length === 0) return 0;
+        const total = latestComments.reduce((sum, c) => sum + Number(c.rating), 0);
+        return total / latestComments.length;
+    }, [latestComments]);
 
-        // محاسبه میانگین امتیاز
-        const total = filtered.reduce((sum, c) => sum + Number(c.rating), 0);
-        const avg = total / filtered.length;
-
-        setAverage(avg);
-        setCount(filtered.length);
-    };
-
+    // ۴) رندر ستاره‌ها
     const renderStars = () => {
         const stars = [];
         let temp = average;
 
         for (let i = 0; i < 5; i++) {
-            if (temp >= 1) {
-                stars.push(<FaStar key={i} className="text-yellow-400 text-lg" />);
-            } else if (temp >= 0.5) {
-                stars.push(<FaStarHalfAlt key={i} className="text-yellow-400 text-lg" />);
-            } else {
-                stars.push(<FaRegStar key={i} className="text-yellow-400 text-lg" />);
-            }
+            if (temp >= 1) stars.push(<FaStar key={i} className="text-yellow-400 text-lg" />);
+            else if (temp >= 0.5) stars.push(<FaStarHalfAlt key={i} className="text-yellow-400 text-lg" />);
+            else stars.push(<FaRegStar key={i} className="text-yellow-400 text-lg" />);
             temp -= 1;
         }
-
         return stars;
     };
 
@@ -69,7 +54,7 @@ export default function ProductRating({ productId }) {
             </span>
 
             <span className="text-xs text-gray-500 dark:text-gray-400">
-                ({count} نفر)
+                ({latestComments.length} نفر)
             </span>
         </div>
     );

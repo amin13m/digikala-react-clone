@@ -1,17 +1,20 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
 import { getDiscountedPrice } from "../../utils/price";
+import { useNavigate } from "react-router-dom";
 
 export default function CartItemCard({ item }) {
   const { updateQty, removeItem } = useCart();
+  const Navigate = useNavigate();
 
   return (
-    <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border mb-3 dark:bg-gray-900 dark:text-white dark:border-gray-800">
+    <div className="flex items-center p-4 bg-white rounded-xl shadow-sm border mb-3  transition-colors dark:bg-gray-900 dark:text-white dark:border-gray-800">
       {/* تصویر */}
       <img
         src={item.image}
         alt={item.name}
-        className="w-20 h-20 rounded-lg object-cover pr-2"
+        className="w-20 h-20 rounded-lg object-cover pr-2 hover:scale-105 transition-transform"
+        onClick={() => Navigate(`/product/${item.id}`)}             
       />
 
       {/* اطلاعات */}
