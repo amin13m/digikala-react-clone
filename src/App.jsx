@@ -17,6 +17,7 @@ import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { PaymentProvider } from "./context/PaymentContext.jsx";
 import Checkout from "./pages/Auth/Checkout.jsx";
 import Orders from "./pages/Orders.jsx";
+import Profile from "./pages/Profile.jsx";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
                   <Route path="cart" element={<Cart />} />
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="orders" element={<Orders />} />
+                  <Route path="profile" element={<Profile />} />
                 </Route>
               </Routes>
 

@@ -12,9 +12,9 @@
       "id": "2",
       "name": "Sara Ahmadi",
       "email": "sara@example.com",
-      "password": "1234",
+      "password": "123456",
       "role": "user",
-      "wallet": 199000000
+      "wallet": 194776000
     },
     {
       "id": "61ea",
@@ -122,7 +122,7 @@
       "discount": 12,
       "categoryId": "4",
       "image": "https://placehold.co/400x400?text=Galaxy+Buds+2",
-      "stock": 40
+      "stock": 39
     },
     {
       "id": "9",
@@ -527,6 +527,21 @@
       ],
       "total": 15500000,
       "date": "12/11/2025, 6:35:49 AM"
+    },
+    {
+      "id": "0d52",
+      "userId": "2",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "name": "هندزفری بلوتوث Samsung Buds 2",
+          "price": 4800000,
+          "discount": 12
+        }
+      ],
+      "total": 4224000,
+      "date": "12/12/2025, 6:34:35 AM"
     }
   ],
   "comments": [
@@ -592,6 +607,15 @@
       "rating": "3",
       "text": "خوب",
       "date": "12/11/2025, 6:37:29 AM"
+    },
+    {
+      "id": "4806",
+      "productId": "8",
+      "userId": "2",
+      "username": "Sara Ahmadi",
+      "rating": "4",
+      "text": "خوب بود ",
+      "date": "12/12/2025, 6:34:57 AM"
     }
   ]
 }

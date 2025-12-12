@@ -6,6 +6,7 @@ const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 const REGISTER = "REGISTER";
 const SET_USER = "SET_USER";
+const UPDATE_USER = "UPDATE_USER";
 
 // --- INITIAL STATE ---
 const initialState = {
@@ -24,6 +25,8 @@ function authReducer(state, action) {
       return { ...state, user: action.payload };
     case LOGOUT:
       return { ...state, user: null };
+    case UPDATE_USER:
+      return { ...state, user: action.payload };
     default:
       return state;
   }
@@ -98,8 +101,34 @@ export const AuthProvider = ({ children }) => {
     dispatch({type:SET_USER,payload:user});
   };
 
+
+  // --- UPDATE NAME ---
+const updateName = async (newName) => {
+  const updated = { ...state.user, name: newName };
+  await UserAPI.update(updated.id, updated);
+  dispatch({ type: UPDATE_USER, payload: updated });
+};
+
+// --- UPDATE PASSWORD ---
+const updatePassword = async (oldPass, newPass) => {
+  if (state.user.password !== oldPass) {
+    throw new Error("رمز فعلی اشتباه است");
+  }
+
+  const updated = { ...state.user, password: newPass };
+  await UserAPI.update(updated.id, updated);
+  dispatch({ type: UPDATE_USER, payload: updated });
+};
+
+// --- CHARGE WALLET ---
+const chargeWallet = async (amount) => {
+  const updated = { ...state.user, wallet: state.user.wallet + amount };
+  await UserAPI.update(updated.id, updated);
+  dispatch({ type: UPDATE_USER, payload: updated });
+};
+
   return (
-    <AuthContext.Provider value={{ ...state, login, register, logout , setUser}}>
+    <AuthContext.Provider value={{ ...state, login, register, logout , setUser , updateName , updatePassword , chargeWallet}}>
       {children}
     </AuthContext.Provider>
   );
