@@ -70,7 +70,9 @@ export default function Header() {
           {/* کاربر */}
           {user ? (
             <div className="flex items-center space-x-2">
-              <span className="text-gray-700 dark:text-gray-200">
+              <span className="text-gray-700 dark:text-gray-200"
+                onClick={()=>navigate("/profile")}
+              >
                 {user.name}
               </span>
               <button

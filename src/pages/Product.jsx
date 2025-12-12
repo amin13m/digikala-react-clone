@@ -37,6 +37,21 @@ export default function Product() {
     fetchProduct();
   }, [id]);
 
+  const handleAdd = async () => {
+  try {
+    await addItem({
+      id: product.id,
+      price: product.price,
+      name: product.name,
+      quantity: product.stock,
+      image: product.image,
+      discount: product.discount,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
   // ----- Loading UI -----
   if (loading) {
     return <p className="text-center mt-10">در حال بارگذاری...</p>;
@@ -50,7 +65,7 @@ export default function Product() {
   // ----- Page UI -----
   return (
     <div>
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 transition-colors">
         {/* Product Image */}
         <div className="flex justify-center">
           <img
@@ -109,15 +124,9 @@ export default function Product() {
 
           {/* Add to Cart */}
           <button
-            onClick={() =>
-              addItem({
-                id: product.id,
-                price: product.price,
-                name: product.name,
-                quantity: product.stock,
-                image: product.image,
-                discount: product.discount,
-              })
+          type="button"
+            onClick={
+              handleAdd
             }
             className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg mt-4
              active:scale-95 active:bg-red-800 active:border-x-5 active:border-red-800

@@ -92,7 +92,13 @@ export default function HeaderMobile() {
 
             {user ? (
               <>
-                <span className="px-3 py-2 text-gray-700">{user.name}</span>
+                <span className="px-3 py-2 text-gray-700"
+                onClick={()=>navigate("/profile")}
+                >
+                  {user.name}
+                </span>
+
+
                 <button
                   onClick={() => {
                     logout();
