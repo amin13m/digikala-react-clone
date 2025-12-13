@@ -8,16 +8,16 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import Login from "./pages/Auth/login.jsx";
 import Register from "./pages/Auth/Register.jsx";
 import Logout from "./pages/Auth/logout.jsx";
-import Cart from "./pages/cart.jsx";
 import HeaderMobile from "./components/layout/MobileHeader.jsx";
 import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
-import Product from "./pages/product.jsx";
 import Category from "./pages/Category.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { PaymentProvider } from "./context/PaymentContext.jsx";
 import Checkout from "./pages/Auth/Checkout.jsx";
 import Orders from "./pages/Orders.jsx";
 import Profile from "./pages/Profile.jsx";
+import Cart from "./pages/Cart.jsx";
+import Product from "./pages/Product.jsx";
 
 function App() {
   return (

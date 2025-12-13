@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
@@ -27,8 +27,9 @@ export default function LoginPage() {
     }
   };
 
-  
-  if(user && !loading)navigate("/");
+  useEffect(() => {
+    if(user && !loading)navigate("/");
+  },[user,loading , navigate]);
 
   return (
 

@@ -52,6 +52,7 @@ export default function CartItemCard({ item }) {
                 ? updateQty(item.id, item.quantity - 1)
                 : () => {}
             }
+            type="button"
             className="px-2 py-0  border rounded-md active:bg-red-500 active:text-white active:scale-95"
           >
             -
@@ -65,6 +66,7 @@ export default function CartItemCard({ item }) {
                 ? updateQty(item.id, item.quantity + 1)
                 : () => {}
             }
+            type="button"
             className="px-2 py-0 border rounded-md active:bg-green-500 active:text-white active:scale-95"
           >
             +
@@ -75,6 +77,7 @@ export default function CartItemCard({ item }) {
       {/* دکمه حذف */}
       <button
         onClick={() => removeItem(item.id)}
+        type="button"
         className="text-red-500 text-sm ml-4"
       >
         حذف

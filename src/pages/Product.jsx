@@ -125,8 +125,11 @@ export default function Product() {
           {/* Add to Cart */}
           <button
           type="button"
-            onClick={
-              handleAdd
+            onClick={(e)=>{
+              e.preventDefault();
+              e.stopPropagation();
+              handleAdd()
+            }
             }
             className="bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg text-lg mt-4
              active:scale-95 active:bg-red-800 active:border-x-5 active:border-red-800

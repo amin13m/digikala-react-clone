@@ -61,7 +61,7 @@ export default function ProfileChangePassword() {
       />
 
       <PasswordInput
-        label="رمز جدید (حداقل ۸ کاراکتر)"
+        label="رمز جدید (حداقل 6 کاراکتر)"
         value={newPass}
         setValue={setNewPass}
         show={showNew}

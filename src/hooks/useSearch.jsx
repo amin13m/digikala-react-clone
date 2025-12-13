@@ -25,7 +25,7 @@ export default function useSearch(query) {
       } finally {
         setLoading(false);
       }
-    }, 800); // Debounce 400ms
+    }, 600); // Debounce 400ms
 
     return () => clearTimeout(delay);
   }, [query]);

@@ -9,7 +9,7 @@ export default function Category() {
   const [category, setCategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState([]);
-  const navigate = useNavigate()
+
   const [sortType, setSortType] = useState("none");
   const [limit, setLimit] = useState(8);
   const [loading, setLoading] = useState(true);

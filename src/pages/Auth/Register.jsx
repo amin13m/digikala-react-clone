@@ -19,17 +19,21 @@ export default function RegisterPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+  e.preventDefault();
+  setError("");
 
+  if (form.password.length < 6) {
+    setError("رمز عبور باید حداقل ۶ کاراکتر باشد");
+    return;
+  }
+
+  try {
     const result = await register(form.name, form.email, form.password);
-
-    if (result.success) {
-      navigate("/login");
-    } else {
-      setError(result.message || "ثبت نام با خطا مواجه شد!");
-    }
-  };
+    navigate("/auth/login");
+  } catch (err) {
+    setError(err.message || "ثبت نام با خطا مواجه شد!");
+  }
+};
 
   return (
     <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg dark:bg-gray-900">
