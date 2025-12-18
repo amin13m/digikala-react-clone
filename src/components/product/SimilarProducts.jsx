@@ -47,7 +47,7 @@ export default function SimilarProducts({ category, currentProductId }) {
   if (!products.length) return null;
 
   return (
-    <div className="mt-10 w-full  h-full p-1.5">
+    <div className="mt-0 w-full  h-full p-1.5">
       <h2 className="text-lg font-bold mb-3">محصولات مشابه</h2>
 
       <div

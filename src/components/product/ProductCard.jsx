@@ -10,15 +10,16 @@ export default  React.memo( function ProductCard({ product }) {
   return (
     <div
       id={product.id}
-      className="bg-gray-200 h-full rounded-lg shadow p-3 hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out sm:min-w-[150px]
-      
+      className="bg-gray-200 h-full rounded-lg shadow p-3  hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out 
+      min-w-[150px] max-w-[190px] sm:min-w-[180px] sm:max-w-[270px]
+      z-40
       dark:bg-gray-900 dark:text-white dark:border-gray-800  dark:hover:text-white"
       onClick={() => navigate(`/product/${product.id}`)}
     >
       <span className="flex justify-center">
          <img
         src={product.image}
-        className="h-32 w-auto object-cover rounded mb-2"
+        className="h-24 sm:h-32 md:h-38 w-auto object-cover rounded mb-2"
       />
       </span>
      

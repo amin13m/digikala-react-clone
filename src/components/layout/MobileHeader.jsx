@@ -23,8 +23,8 @@ export default function HeaderMobile() {
     >
       <div className="flex items-center justify-between p-4">
         {/* لوگو */}
-        <Link to="/" className="text-xl font-bold text-red-600">
-          DigiClone
+        <Link to="/" className="text-xl font-bold text-red-600 min-w-[100px] ">
+          دیجی کلون
         </Link>
 
         <button
@@ -60,7 +60,7 @@ export default function HeaderMobile() {
 
       {/* منوی موبایل */}
       {menuOpen && (
-        <div className="bg-white border-t shadow-md md:hidden    dark:bg-gray-900 dark:text-white dark:border-gray-800">
+        <div className="bg-white border-t shadow-md md:hidden    dark:bg-gray-900 dark:text-white dark:border-gray-800 absolute w-full left-0 z-51">
           {/* جستجو */}
           <SearchBox />
 
@@ -71,7 +71,7 @@ export default function HeaderMobile() {
           >
             <Link
               to="/"
-              className="px-3 py-2 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
+              className="px-3 py-0 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
               onClick={() => setMenuOpen(false)}
             >
               خانه
@@ -79,35 +79,18 @@ export default function HeaderMobile() {
 
             <CategoriesList />
 
-            {/* سوابق خرید */}
-            <button
-              onClick={() => {
-                navigate("/orders");
-                setMenuOpen(false);
-              }}
-              className="px-3 py-2 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
-            >
-              سوابق خرید
-            </button>
-
+           
             {user ? (
               <>
-                <span className="px-3 py-2 text-gray-700"
+                <span className="px-3 py-2 text-gray-700 min-w-content rounded w-fil text-center border 
+                dark:bg-gray-900 dark:text-white dark:border-gray-800 "
                 onClick={()=>navigate("/profile")}
                 >
                   {user.name}
                 </span>
 
 
-                <button
-                  onClick={() => {
-                    logout();
-                    setMenuOpen(false);
-                  }}
-                  className="px-3 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
-                >
-                  خروج
-                </button>
+                
               </>
             ) : (
               <button

@@ -25,9 +25,9 @@ export default function Header() {
         {/* لوگو */}
         <Link
           to="/"
-          className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700"
+          className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700 min-w-[120px] "
         >
-          DigiClone
+          دیجی کلون
         </Link>
         {/* Theme toggle */}
         <button
@@ -41,7 +41,7 @@ export default function Header() {
         <SearchBox />
 
         {/* منو و آیکون‌ها */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2  w-fit">
           {/* دسته‌بندی‌ها ساده */}
 
           <CategoriesList />
@@ -49,7 +49,7 @@ export default function Header() {
           {/* سبد خرید */}
           <button
             onClick={() => navigate("/cart")}
-            className="relative py-2 px-2 rounded hover:bg-gray-100 transition dark:hover:bg-gray-800"
+            className="relative py-2 px-2 rounded hover:bg-gray-100 transition dark:hover:bg-gray-800 "
           >
             🛒
             {cartCount > 0 && (
@@ -59,28 +59,17 @@ export default function Header() {
             )}
           </button>
 
-          {/* سوابق خرید */}
-          <button
-            onClick={() => navigate("/orders")}
-            className=" text-xs py-2 rounded hover:bg-gray-100 transition dark:hover:bg-gray-800"
-          >
-            سوابق خرید
-          </button>
-
           {/* کاربر */}
           {user ? (
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-700 dark:text-gray-200"
+            <div className="space-x-2 w-fit mx-0 text-center">
+              <div className="text-gray-900 dark:text-gray-100 cursor-pointer min-w-20  mx-0
+               border-2 border-gray-300 rounded-md p-1 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white transition dark:border-gray-600 dark:hover:border-gray-500 dark:bg-gray-800 
+               block text-center
+               "
                 onClick={()=>navigate("/profile")}
               >
                 {user.name}
-              </span>
-              <button
-                onClick={() => logout()}
-                className="px-3 py-1 bg-red-600 dark:bg-red-600 text-white rounded hover:bg-red-700  dark:hover:bg-red-700 transition"
-              >
-                خروج
-              </button>
+              </div>
             </div>
           ) : (
             <button

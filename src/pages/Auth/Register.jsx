@@ -36,7 +36,7 @@ export default function RegisterPage() {
 };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow rounded-lg dark:bg-gray-900">
+    <div className="max-w-md mx-auto mt-20 mb-40 p-6 bg-white shadow rounded-lg dark:bg-gray-900">
       <h2 className="text-2xl font-bold mb-6 text-center">ثبت نام کاربر</h2>
 
       {error && <p className="text-red-500 text-sm mb-3 ">{error}</p>}

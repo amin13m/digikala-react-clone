@@ -78,13 +78,13 @@ export default function Category() {
       </h1>
 
       {/* Sort Options */}
-      <div className="flex gap-4 mb-4">
+      <div className="flex gap-4 mb-4 relative">
         <select
-          className="border p-2 rounded bg-white dark:bg-gray-900 dark:hover:bg-gray-800"
+          className="right-0 relative border p-2 rounded bg-white dark:bg-gray-900 dark:hover:bg-gray-800"
           value={sortType}
           onChange={(e) => handleSort(e.target.value)}
         >
-          <option value="none">بدون مرتب‌سازی</option>
+          <option value="none" className="right-0">بدون مرتب‌سازی</option>
           <option value="cheapest">ارزان‌ترین</option>
           <option value="expensive">گران‌ترین</option>
         </select>

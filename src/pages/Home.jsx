@@ -6,6 +6,7 @@ import { getDiscountedPrice } from "../utils/price";
 import DiscountSlider from "../components/home/DiscountSlider";
 import ProductCard from "../components/product/ProductCard";
 import TopSellingProducts from "../components/home/topSellingProducts";
+import BannerSlider from "../components/home/bannerSlider";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -76,23 +77,12 @@ export default function Home() {
 
   return (
     <div
-      className="max-w-7xl mx-auto px-4 pt-6
+      className="max-w-7xl mx-auto px-4 pt-4 sm:pt-6
       dark:bg-gray-800 dark:text-white dark:border-gray-800 "
     >
       {/* Banner */}
 
-      <div className="relative w-full h-60 md:h-96 rounded-xl overflow-hidden mb-8">
-        <img
-          src="https://via.placeholder.com/1200x400?text=Digikala+Banner"
-          alt="بنر فروشگاه"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-          <h1 className="text-white text-2xl md:text-4xl font-bold">
-            خوش آمدید به DigiClone
-          </h1>
-        </div>
-      </div>
+        <BannerSlider interval={50000} />
 
       {/* Products */}
 

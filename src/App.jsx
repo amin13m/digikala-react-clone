@@ -14,7 +14,6 @@ import Category from "./pages/Category.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { PaymentProvider } from "./context/PaymentContext.jsx";
 import Checkout from "./pages/Auth/Checkout.jsx";
-import Orders from "./pages/Orders.jsx";
 import Profile from "./pages/Profile.jsx";
 import Cart from "./pages/Cart.jsx";
 import Product from "./pages/Product.jsx";
@@ -40,7 +39,6 @@ function App() {
                 <Route element={<ProtectedRoute />}>
                   <Route path="cart" element={<Cart />} />
                   <Route path="checkout" element={<Checkout />} />
-                  <Route path="orders" element={<Orders />} />
                   <Route path="profile" element={<Profile />} />
                 </Route>
               </Routes>

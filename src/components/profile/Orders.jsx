@@ -1,9 +1,8 @@
 
 import React, { Suspense, useEffect, useState , lazy} from "react";
-import { useAuth } from "../context/AuthContext.jsx";
-import { OrderAPI } from "../api/api.js";
-import { getDiscountedPrice } from "../utils/price.js";
-const OrderTables = lazy(() => import("../components/Orders/OrderTables.jsx"));
+import { useAuth } from "../../context/AuthContext.jsx";
+import { OrderAPI } from "../../api/api.js";
+const OrderTables = lazy(() => import("../Orders/OrderTables.jsx"));
 
 export default function Orders() {
     const { user } = useAuth();

@@ -62,8 +62,9 @@ export default function OrderTables({ orders }) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </div><br />
         </div>
+        
       ))}
     </div>
   );

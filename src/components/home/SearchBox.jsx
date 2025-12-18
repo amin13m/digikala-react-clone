@@ -18,11 +18,11 @@ export default function SearchBox() {
        dark:bg-gray-900 dark:text-white dark:border-gray-800 
        "
       >
-        <FaSearch className="text-gray-400 text-sm absolute left-5" />
+        <FaSearch className="text-gray-400 text-sm absolute right-5" />
         <input
           type="text"
           placeholder="جستجو در کالاها..."
-          className="bg-transparent outline-none pl-7 w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 
+          className="bg-transparent outline-none pr-7 w-full rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 
           dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800
                  focus:border-linear-to-r from-red-900 to-orange-500
                  dark:focus:bg-linear-to-r dark:from-blue-900 dark:to-blue-600 dark:focus:ring-blue-300

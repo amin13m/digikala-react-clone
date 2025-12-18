@@ -67,15 +67,26 @@ function TopSellingSlider() {
     if (topProducts.length === 0) return null;
 
     return (
-        <div className="w-full mt-10 h-full p-1.5
+        <div className="w-full mt-4 sm:mt-7 h-full p-1.5
                         bg-linear-to-r from-yellow-600 to-orange-600
-                        dark:bg-linear-to-r dark:from-gray-900 dark:to-blue-700
-                        rounded-2xl">
-            <h2 className="text-white font-bold mb-2 text-2xl p-2 z-30">🔥 محصولات پرفروش</h2>
-            <div className="overflow-x-auto overflow-y-visible mx-4 z-30 flex gap-4 pb-3">
+                        dark:bg-linear-to-r dark:to-gray-900 dark:from-blue-700
+                        rounded-2xl
+                        md:flex md:flex-row md:items-center
+                        z-30
+                        ">
+            <h2 className="text-white font-bold mb-2 text-xl sm:text-2xl p-1 sm:p-2 z-30 
+              md:text-center md:text-2xl md:mb-0 md:ml-4 md:border-l-4 md:border-white md:pl-4
+            ">
+                
+                 پرفروش‌ <br className="hidden md:block" />
+                 ترین <br className="hidden md:block" />
+                 محصولات <br className="hidden md:block" /> <br className="hidden md:block" />
+                 <div className=" text-4xl hidden md:block scale-y-120">🏆</div>
+            </h2>
+            <div className="overflow-x-auto overflow-y-visible mx-1 sm:mx-4 z-30 flex gap-1 sm:gap-4 pb-1 sm:pb-3">
                 {topProducts.map((p) => (
-                    <div key={p.id} className="min-w-[180px] z-40">
-                        <ProductCard product={p} />
+                    <div key={p.id} className="min-w-[150px] sm:min-w-[180px] z-40">
+                        <ProductCard product={p} className="z-40" />
                     </div>
                 ))}
             </div>
