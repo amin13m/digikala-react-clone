@@ -82,7 +82,7 @@ export default function Home() {
     >
       {/* Banner */}
 
-        <BannerSlider interval={50000} />
+        <BannerSlider interval={5000} />
 
       {/* Products */}
 

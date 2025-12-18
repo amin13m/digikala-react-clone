@@ -42,7 +42,7 @@ export default function Cart() {
         <div className="flex justify-between mt-4 text-sm
         text-red-600">
           <span>موجودی کیف پول ناکافی</span>
-          <span >{user.wallet.toLocaleString()} تومان</span>
+          <span >{Number(user.wallet).toLocaleString()} تومان</span>
         </div>
         }
         

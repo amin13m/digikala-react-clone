@@ -4,40 +4,41 @@
 
 A modern DigiKala-inspired e-commerce web application built with React, focused on clean architecture, performance optimization, and scalable state management using JSON Server as a mock backend.
 
-## 🖼️ Screenshots
+## 🖼 Screenshots
 
 ---
 
 ### 🏠 Home Page
-| Desktop | Mobile |
+| light | dark |
 |---------|--------|
-| ![Home](assets/screenshots/home.jpg) | ![Home Mobile](assets/screenshots/home-m.jpg) |
-| ![Home Dark](assets/screenshots/home-dark.jpg) | ![Home Mobile Dark](assets/screenshots/home-m-dark.jpg) |
+| ![Home](assets/screenshots/home.jpg) | ![Home Dark](assets/screenshots/home-dark.jpg) |
+| ![Home Mobile](assets/screenshots/home-m.jpg) | ![Home Mobile Dark](assets/screenshots/home-m-dark.jpg) |
 | ![Home Search](assets/screenshots/home-search.jpg) | ![Home Sliders](assets/screenshots/home-sliders.jpg) |
 
 ---
 
-### 🛍️ Product Page
-| Desktop | Mobile |
-|---------|--------|
-| ![Product](assets/screenshots/product.jpg) | ![Product Mobile](assets/screenshots/product-m.jpg) |
+### 🛍 Product Page
+| Desktop | Mobile | Mobile dark |
+|---------|--------|--------|
+| ![Product](assets/screenshots/product.jpg) | ![Product Mobile](assets/screenshots/product-m.jpg) |![Product Mobile dark](assets/screenshots/product-m-dark.jpg) |
 
 #### 💬 Comments
-![Product Comments](assets/screenshots/product-m-comments.jpg)
+| Desktop | Mobile | Mobile dark |
+|---------|--------|--------|
+| ![Product Comments](assets/screenshots/product-comments.jpg) | ![Product Comments Mobile](assets/screenshots/product-m-comments.jpg) | ![Product Comments Mobile dark](assets/screenshots/product-m-comments-dark.jpg) |
 
 ---
 
 ### 🛒 Cart
-| Desktop | Mobile |
-|---------|--------|
-| ![Cart](assets/screenshots/cart.jpg) | ![Cart Mobile](assets/screenshots/cart-m.jpg) |
-| ![Cart Mobile Dark](assets/screenshots/cart-m-dark.jpg) | |
+| Desktop | Mobile | Mobile-Dark |
+|---------|--------|-------------|
+| ![Cart](assets/screenshots/cart.jpg) | ![Cart Mobile](assets/screenshots/cart-m.jpg) | ![Cart Mobile Dark](assets/screenshots/cart-m-dark.jpg) |
 
 ---
 
 ### 🔐 Authentication
 | Login | Register |
-|-------|---------|
+|-------|----------|
 | ![Login](assets/screenshots/login.jpg) | ![Register](assets/screenshots/register.jpg) |
 
 ---
@@ -50,8 +51,9 @@ A modern DigiKala-inspired e-commerce web application built with React, focused 
 ---
 
 ### 🔑 Change Profile
-![Change Password](assets/screenshots/changPassword.jpg) ![Change Password](assets/screenshots/changeName.jpg)
-
+| profile | charge wallet | password | name |
+|---------|--------------|----------|------|
+| ![profile](assets/screenshots/profile.jpg) | ![charge wallet](assets/screenshots/charge-wallet.jpg) | ![password](assets/screenshots/changPassword.jpg) | ![name](assets/screenshots/changeName.jpg) |
 
 ## 📦 Tech Stack
 
@@ -130,6 +132,20 @@ A modern DigiKala-inspired e-commerce web application built with React, focused 
 - Debounced inputs
 - Optimized context updates
 
+
+## Performance & UX Enhancements
+
+This project includes several optimizations to improve performance and user experience:
+
+- ⚡️ Lazy Loading: Components and images are loaded only when needed to reduce initial load time.
+- 🧠 Memoization: React.memo, useMemo, and useCallback are used to prevent unnecessary re-renders.
+- 🌐 Responsive Design: Fully responsive layout for desktop, tablet, and mobile devices.
+- 🌙 Dark/Light Mode: Seamless toggle between dark and light themes for better accessibility.
+- 🛒 Optimized Cart & LocalStorage: Cart state is efficiently stored and retrieved from localStorage.
+- 🔄 Infinite Scroll: Smooth product listing experience with optimized scroll performance.
+- ⏱️ Debounced API Calls: Search and filter API requests are debounced to reduce unnecessary network calls and improve performance.
+
+
 ## 🗂 Project Structure
 
 src/ ├── api/ ├── components/ │   ├── home/ │   ├── product/ │   ├── layout/ │   ├── profile/ ├── context/ ├── pages/ ├── hooks/ ├── utils/ └── App.jsx
@@ -137,9 +153,13 @@ src/ ├── api/ ├── components/ │   ├── home/ │   ├── 
 ## 🔧 Installation & Run
 
 `bash
+
 npm install
+
 npx json-server --watch db.json --port 3000
+
 npm run dev
+
 
 📌 Future Improvements
 
