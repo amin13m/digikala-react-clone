@@ -38,7 +38,7 @@ export default function ProductRating({ productId }) {
 
         for (let i = 0; i < 5; i++) {
             if (temp >= 1) stars.push(<FaStar key={i} className="text-yellow-400 text-lg" />);
-            else if (temp >= 0.5) stars.push(<FaStarHalfAlt key={i} className="text-yellow-400 text-lg" />);
+            else if (temp >= 0.5) stars.push(<FaStarHalfAlt key={i} className="text-yellow-400 text-lg scale-x-[-1]" />);
             else stars.push(<FaRegStar key={i} className="text-yellow-400 text-lg" />);
             temp -= 1;
         }

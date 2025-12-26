@@ -74,4 +74,11 @@ export const CommentAPI = {
     delete: (id) => api.delete(`/comments/${id}`),
 };
 
+///// ADMIN LOG API /////
+export const AdminLogAPI = {
+  getAll: () => api.get("/adminLogs"),
+  create: (data) => api.post("/adminLogs", data),
+  getByAdminId: (adminId) => api.get(`/adminLogs?adminId=${adminId}`),
+};
+
 export default api

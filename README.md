@@ -1,8 +1,14 @@
 ---
 
-# 🛒 DigiKala React Clone
+# 🛒 DigiShop React Web Application
 
-A modern DigiKala-inspired e-commerce web application built with React, focused on clean architecture, performance optimization, and scalable state management using JSON Server as a mock backend.
+A modern, full-featured e-commerce web application inspired by DigiKala,
+built with React and focused on clean architecture, performance optimization,
+scalable state management, and role-based admin management.
+
+This project goes beyond a simple clone and implements real-world
+e-commerce workflows including admin dashboards, product management,
+activity logging, and optimized user experience.
 
 ## 🖼 Screenshots
 
@@ -54,6 +60,16 @@ A modern DigiKala-inspired e-commerce web application built with React, focused 
 | profile | charge wallet | password | name |
 |---------|--------------|----------|------|
 | ![profile](assets/screenshots/profile.jpg) | ![charge wallet](assets/screenshots/charge-wallet.jpg) | ![password](assets/screenshots/changPassword.jpg) | ![name](assets/screenshots/changeName.jpg) |
+
+---
+
+### 🏠 Admin Dashboard
+| Update Product | Admin Logs |
+|---------|--------|
+| ![Product](assets/screenshots/admin-update.jpg) | ![Home Dark](assets/screenshots/admin-logs.jpg) |
+| ![add Product](assets/screenshots/admin-add.jpg) | ![Home Mobile Dark](assets/screenshots/admin-all-logs.jpg) |
+
+
 
 ## 📦 Tech Stack
 
@@ -123,6 +139,31 @@ A modern DigiKala-inspired e-commerce web application built with React, focused 
 - Horizontal scroll sections
 - Smooth transitions
 
+---
+
+## 🛠 Admin Dashboard
+
+Role-based admin management system.
+
+### Admin
+- Add new products
+- Update products (price, discount, stock)
+- Server-synced changes
+- Personal activity logs
+- Before/After product comparison
+
+### Super Admin
+- View all admin activity logs
+- Full visibility of all product changes
+
+### Logging System
+- Action type (ADD_PRODUCT, UPDATE_PRODUCT)
+- Admin ID
+- Product ID
+- Timestamp
+- Before / After state
+
+
 ## ⚡️ Performance Optimization
 - React.memo
 - useMemo
@@ -164,8 +205,6 @@ npm run dev
 📌 Future Improvements
 
 Server-side pagination
-
-Admin dashboard
 
 Stock management
 

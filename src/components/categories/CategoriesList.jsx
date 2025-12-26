@@ -24,7 +24,7 @@ export default function CategoriesList() {
   if (loading) return <p className="text-center py-10">در حال بارگذاری...</p>;
 
   return (
-    <div className="relative group px-0">
+    <div className="relative group px-0 w-[120px]">
       <h2 className="px-3 pt-1 cursor-pointer rounded hover:bg-gray-100 transition dark:hover:bg-gray-800">دسته‌بندی‌ها :</h2>
 
       <div className="p-1 r-0 md:pl-1 pl-4 md:absolute top-full  block md:hidden md:group-hover:block bg-white dark:bg-gray-900 shadow-lg md:border mt-0 rounded w-48  z-52 mr-3 md:m-0

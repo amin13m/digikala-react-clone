@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
       const exist = res.data.find(u => u.email === email);
       if (exist) throw new Error("این ایمیل قبلا ثبت شده");
 
-      const newUser = { name, email, password, role: "user" };
+      const newUser = { name, email, password, role: "user" , wallet: 0};
       const created = await UserAPI.create(newUser);
       dispatch({ type: REGISTER, payload: created.data });
       return created.data;

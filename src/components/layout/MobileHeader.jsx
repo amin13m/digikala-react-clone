@@ -24,7 +24,7 @@ export default function HeaderMobile() {
       <div className="flex items-center justify-between p-4">
         {/* لوگو */}
         <Link to="/" className="text-xl font-bold text-red-600 min-w-[100px] ">
-          دیجی کلون
+          {/* دیجی شاپ */} DigiShop 
         </Link>
 
         <button

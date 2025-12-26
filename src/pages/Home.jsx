@@ -39,7 +39,8 @@ export default function Home() {
 
       setProducts((prev) =>{
         if (page === 1) {return newItems;}
-        else {return [...prev, ...newItems];}}
+        else {return [...prev, ...newItems];}
+      }
       );
     } catch (err) {
       console.log(err);

@@ -12,7 +12,9 @@ export default function Footer() {
         {/* Logo + Description */}
         <div className="flex flex-col sm:flex-row justify-between gap-8 mb-10">
           <div className="flex flex-col gap-3 max-w-md">
-            <h2 className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700">دیجی کلون</h2>
+            <h2 className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700">
+              {/* دیجی شاپ */} DigiShop 
+            </h2>
             <p className="text-sm text-gray-600 leading-6">
               خرید اینترنتی مطمئن، سریع و ارزان.  
               هزاران کالا در دسته‌بندی‌های مختلف با بهترین قیمت.

@@ -17,6 +17,12 @@ import Checkout from "./pages/Auth/Checkout.jsx";
 import Profile from "./pages/Profile.jsx";
 import Cart from "./pages/Cart.jsx";
 import Product from "./pages/Product.jsx";
+import AdminRoute from "./components/routes/AdminRoute.jsx";
+import AddProduct from "./components/admin/AddProduct.jsx";
+import AdminProducts from "./components/admin/AdminProducts.jsx";
+import AdminLayout from "./components/admin/AdminLayout.jsx";
+import AdminLogs from "./components/admin/AdminLogs.jsx";
+import SuperAdminLogs from "./components/admin/SuperAdminLogs.jsx";
 
 function App() {
   return (
@@ -40,6 +46,15 @@ function App() {
                   <Route path="cart" element={<Cart />} />
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="profile" element={<Profile />} />
+
+                  <Route element={<AdminRoute />}>
+                    <Route path="/admin" element={<AdminLayout />}>
+                      <Route path="products" element={<AdminProducts />} />
+                      <Route path="products/new" element={<AddProduct />} />
+                      <Route path="logs" element={<AdminLogs />} />
+                      <Route path="super-admin-logs" element={<SuperAdminLogs />} />
+                    </Route>
+                  </Route>
                 </Route>
               </Routes>
 

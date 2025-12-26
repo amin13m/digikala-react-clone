@@ -27,7 +27,7 @@ export default function Header() {
           to="/"
           className="text-2xl font-bold text-red-600 dark:text-red-500 dark:hover:text-red-700 min-w-[120px] "
         >
-          دیجی کلون
+           {/* دیجی شاپ */} DigiShop   
         </Link>
         {/* Theme toggle */}
         <button
@@ -46,6 +46,7 @@ export default function Header() {
 
           <CategoriesList />
 
+
           {/* سبد خرید */}
           <button
             onClick={() => navigate("/cart")}
@@ -59,14 +60,25 @@ export default function Header() {
             )}
           </button>
 
+          {/* پنل مدیریت */ }
+          {user && (user.role === "admin" || user.role === "superAdmin") && (
+            <Link
+              to="/admin/products"
+              className="text-xs w-[100px] px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              Admin Panel
+            </Link>
+          )}
+
           {/* کاربر */}
           {user ? (
             <div className="space-x-2 w-fit mx-0 text-center">
-              <div className="text-gray-900 dark:text-gray-100 cursor-pointer min-w-20  mx-0
+              <div
+                className="text-gray-900 dark:text-gray-100 cursor-pointer min-w-20  mx-0
                border-2 border-gray-300 rounded-md p-1 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white transition dark:border-gray-600 dark:hover:border-gray-500 dark:bg-gray-800 
                block text-center
                "
-                onClick={()=>navigate("/profile")}
+                onClick={() => navigate("/profile")}
               >
                 {user.name}
               </div>
