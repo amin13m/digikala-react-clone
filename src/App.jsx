@@ -23,6 +23,7 @@ import AdminProducts from "./components/admin/AdminProducts.jsx";
 import AdminLayout from "./components/admin/AdminLayout.jsx";
 import AdminLogs from "./components/admin/AdminLogs.jsx";
 import SuperAdminLogs from "./components/admin/SuperAdminLogs.jsx";
+import OrdersLogs from "./components/admin/OrdersLogs.jsx";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
                       <Route path="products/new" element={<AddProduct />} />
                       <Route path="logs" element={<AdminLogs />} />
                       <Route path="super-admin-logs" element={<SuperAdminLogs />} />
+                      <Route path="orders-logs" element={<OrdersLogs />} />
                     </Route>
                   </Route>
                 </Route>

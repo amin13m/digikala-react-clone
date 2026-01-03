@@ -38,7 +38,7 @@
       "email": "amin@example.com",
       "password": "123456",
       "role": "superAdmin",
-      "wallet": 100000000
+      "wallet": 69810000
     }
   ],
   "categories": [
@@ -174,7 +174,7 @@
       "discount": 0,
       "categoryId": "1",
       "image": "https://itjoo.ir/wp-content/uploads/2024/02/642d4ec3-6a65-4e97-bf17-c68ac8381524.jpg",
-      "stock": 7,
+      "stock": 6,
       "updatedAt": "12/20/2025, 6:58:18 AM"
     },
     {
@@ -226,7 +226,7 @@
       "name": "فلش مموری SanDisk 128GB",
       "price": 690000,
       "discount": 0,
-      "stock": 45,
+      "stock": 44,
       "categoryId": "1",
       "image": "https://th.bing.com/th/id/OIP.NHtZ0INh_0bhpJR65ZlhNQHaHa?w=180&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1",
       "createdBy": "e17c",
@@ -284,7 +284,7 @@
     {
       "userId": "e17c",
       "items": [],
-      "id": "848f"
+      "id": "5385"
     }
   ],
   "orders": [
@@ -994,6 +994,28 @@
       ],
       "total": 61635000,
       "date": "12/20/2025, 6:58:18 AM"
+    },
+    {
+      "id": "e39a",
+      "userId": "e17c",
+      "items": [
+        {
+          "productId": "9114",
+          "quantity": 1,
+          "name": "فلش مموری SanDisk 128GB",
+          "price": 690000,
+          "discount": 0
+        },
+        {
+          "productId": "11",
+          "quantity": 1,
+          "name": "تلویزیون LG 50UP77",
+          "price": 29500000,
+          "discount": 0
+        }
+      ],
+      "total": 30190000,
+      "date": "1/2/2026, 4:21:21 AM"
     }
   ],
   "comments": [

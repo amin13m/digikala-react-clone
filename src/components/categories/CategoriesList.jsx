@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { CategoryAPI } from "../../api/api";
 import { Link } from "react-router-dom";
 
-export default function CategoriesList() {
+export default function CategoriesList( setMenuOpen) {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,6 +35,7 @@ export default function CategoriesList() {
             key={cat.id}
             to={`/category/${cat.id}`}
             className="text-gray-700 "
+            onClick={() => setMenuOpen && setMenuOpen(false)}
           >
             <p className="font-medium hover:shadow-sm shadow-gray-300 hover:text-red-500 dark:border-gray-800 dark:text-gray-200 dark:hover:text-white text-sm md:text-md">{cat.name}</p>
           </Link>

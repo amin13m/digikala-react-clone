@@ -8,104 +8,124 @@ import { useTheme } from "../../context/ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function HeaderMobile() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const { items } = useCart();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
+
+  // ✅ حتماً باید اینجا باشد
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { theme, toggleTheme } = useTheme();
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header
-      className="md:hidden  bg-white shadow-md  top-0 z-50
-      dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
-    >
+    <header className="md:hidden bg-white shadow-md dark:bg-gray-900 z-50">
       <div className="flex items-center justify-between p-4">
-        {/* لوگو */}
-        <Link to="/" className="text-xl font-bold text-red-600 min-w-[100px] ">
-          {/* دیجی شاپ */} DigiShop 
+        {/* Logo */}
+        <Link to="/" className="text-xl font-bold text-red-600">
+          DigiShop
         </Link>
 
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 "
+          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </button>
 
-        <div>
-          {/* سبد خرید */}
+        <div className="flex items-center">
+          {/* Cart */}
           <button
             onClick={() => navigate("/cart")}
-            className=" relative text-gray-700 ml-3"
+            className="relative ml-3"
           >
             🛒
             {cartCount > 0 && (
-              <span className=" absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white w-5 h-5 text-xs flex items-center justify-center rounded-full">
                 {cartCount}
               </span>
             )}
           </button>
 
-          {/* دکمه منوی همبرگر */}
+          {/* Hamburger */}
           <button
-            className="px-3 md:hidden text-gray-700  dark:text-white"
-            onClick={() => setMenuOpen(!menuOpen)}
+            className="px-3 text-xl"
+            onClick={() => setMenuOpen(true)}
           >
             ☰
           </button>
         </div>
       </div>
 
-      {/* منوی موبایل */}
-      {menuOpen && (
-        <div className="bg-white border-t shadow-md md:hidden    dark:bg-gray-900 dark:text-white dark:border-gray-800 absolute w-full left-0 z-51">
-          {/* جستجو */}
-          <SearchBox />
+      {/* Overlay */}
+      <div
+        onClick={() => setMenuOpen(false)}
+        className={`
+          fixed inset-0 bg-black/40 z-40 transition-opacity duration-300
+          ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+        `}
+      />
 
-          {/* لینک‌ها */}
-          <nav
-            className="flex flex-col space-y-2 p-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            <Link
-              to="/"
-              className="px-3 py-0 rounded hover:bg-gray-100 transition    dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
-              onClick={() => setMenuOpen(false)}
-            >
-              خانه
-            </Link>
-
-            <CategoriesList />
-
-           
-            {user ? (
-              <>
-                <span className="px-3 py-2 text-gray-700 min-w-content rounded w-fil text-center border 
-                dark:bg-gray-900 dark:text-white dark:border-gray-800 "
-                onClick={()=>navigate("/profile")}
-                >
-                  {user.name}
-                </span>
-
-
-                
-              </>
-            ) : (
-              <button
-                onClick={() => {
-                  navigate("/auth/login");
-                  setMenuOpen(false);
-                }}
-                className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-              >
-                ورود
-              </button>
-            )}
-          </nav>
+      {/* Slide Menu */}
+      <div
+        className={`
+          fixed top-0 right-0 h-full w-full
+          bg-white dark:bg-gray-900
+          z-50 transform transition-transform duration-300 ease-in-out
+          ${menuOpen ? "translate-x-0" : "translate-x-full"}
+        `}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center p-4 border-b dark:border-gray-800">
+          <span className="font-bold">منو</span>
+          <button onClick={() => setMenuOpen(false)}>✕</button>
         </div>
-      )}
+
+        {/* Search */}
+        <div className="p-4">
+          <SearchBox setMenuOpen={setMenuOpen} />
+        </div>
+
+        {/* Links */ }
+        <nav className="flex flex-col space-y-2 p-4">
+          <Link to="/" onClick={() => setMenuOpen(false)}>خانه</Link>
+
+          <CategoriesList setMenuOpen={setMenuOpen}/>
+
+          {user && user.role === "admin" || user?.role === "superAdmin" ? (
+            <Link
+              to="/admin/products"
+              onClick={() => setMenuOpen(false)}
+              className="border rounded p-2 text-center"
+            >
+              ADMIN
+            </Link>
+          ) : null}
+
+          {user ? (
+            <button
+              onClick={() => {
+                navigate("/profile");
+                setMenuOpen(false);
+              }}
+              className="border rounded p-2 text-center"
+            >
+              {user.name}
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                navigate("/auth/login");
+                setMenuOpen(false);
+              }}
+              className="bg-blue-600 text-white rounded p-2"
+            >
+              ورود
+            </button>
+          )}
+        </nav>
+      </div>
     </header>
   );
 }

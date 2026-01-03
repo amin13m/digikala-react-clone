@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 import { FaSearch } from "react-icons/fa";
 
-export default function SearchBox() {
+export default function SearchBox({setMenuOpen}) {
   const [query, setQuery] = useState("");
   const { results, loading } = useSearch(query);
 
@@ -53,7 +53,7 @@ export default function SearchBox() {
                 to={`/product/${item.id}`}
                 className="flex items-center p-3 hover:bg-gray-100 border-b
                 dark:bg-gray-900 dark:text-white dark:border-gray-800 dark:hover:bg-gray-800"
-                onClick={() => setQuery("")}
+                onClick={() =>{ setQuery("") ; setMenuOpen(false)}}
               >
                 <img
                   src={item.image}

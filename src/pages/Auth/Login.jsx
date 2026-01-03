@@ -18,12 +18,11 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    const result = await login(form.email, form.password);
-
-    if (result.name) {
-      navigate("/"); // بعد از لاگین موفق → صفحه اصلی
-    } else {
-      setError(result.message || "ایمیل یا رمز عبور اشتباه است!");
+    try{
+      await login(form.email, form.password);
+      navigate("/");
+    }catch(err){
+      setError(err.message || "ورود با خطا مواجه شد!");
     }
   };
 

@@ -32,7 +32,7 @@ export default function Header() {
         {/* Theme toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300"
+          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </button>

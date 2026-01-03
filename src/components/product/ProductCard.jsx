@@ -10,8 +10,8 @@ export default  React.memo( function ProductCard({ product }) {
   return (
     <div
       id={product.id}
-      className="bg-gray-200 h-full rounded-lg shadow p-3  hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out 
-      min-w-[150px] max-w-[190px] sm:min-w-[180px] sm:max-w-[270px]
+      className="bg-gray-200 rounded-lg shadow p-3  hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300 ease-in-out 
+      h-60 sm:h-full min-w-[150px] max-w-[190px] sm:min-w-[180px] sm:max-w-[270px]
       z-40
       dark:bg-gray-900 dark:text-white dark:border-gray-800  dark:hover:text-white"
       onClick={() => navigate(`/product/${product.id}`)}
@@ -23,7 +23,7 @@ export default  React.memo( function ProductCard({ product }) {
       />
       </span>
      
-      <h3 className="text-sm font-semibold">{product.name}</h3>
+      <h3 className="text-sm font-semibold max-h-15 sm:max-h-full overflow-hidden">{product.name}</h3>
       {product.discount > 0 ? (
         <div className="mt-2">
           <span className="text-red-600 font-bold ">
